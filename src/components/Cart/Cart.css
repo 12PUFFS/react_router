@@ -1,0 +1,129 @@
+.cartinochka {
+  /* position: relative; */
+  background: black;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  color: black;
+  background: #ffffff;
+  border-radius: 50%;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+}
+
+.ty {
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  width: 500px;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: none;
+  max-height: 400px;
+  overflow: hidden; /* Меняем на hidden */
+}
+
+.ol {
+  display: flex;
+
+  align-items: center;
+}
+
+.empty-cart {
+}
+
+.ty.active {
+  display: flex; /* Меняем на flex */
+  flex-direction: column; /* Добавляем направление */
+  height: 500px;
+}
+
+.ty.active ul {
+  gap: 20px; /* Уменьшаем отступ */
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Добавляем прокрутку для списка */
+  width: 100%;
+  flex: 1; /* Занимает все доступное пространство */
+  margin: 0;
+  padding: 0;
+}
+
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ty.active li {
+  list-style: none;
+  padding: 15px; /* Уменьшаем padding */
+  border-radius: 12px;
+  display: flex;
+  gap: 15px;
+  background: #f8f9fa; /* Добавляем фон для видимости */
+  border: 1px solid #e9ecef;
+  margin-right: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.close-btn {
+  margin-left: auto;
+  display: flex;
+  padding: 10px;
+  border-radius: 100%;
+  background: #000;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  height: 20px; /* Увеличиваем для кликабельности */
+  width: 20px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.pii {
+  max-width: 20%;
+  padding: 0;
+}
+
+button {
+  height: fit-content;
+  padding: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.tt p {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Дополнительно для лучшего скролла */
+.ty.active ul::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ty.active ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.ty.active ul::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
