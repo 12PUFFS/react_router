@@ -22,21 +22,45 @@ export default function ProductInfo() {
     navigate(-1);
   };
 
+  if (!product.photos) {
+    return (
+      <div className="container">
+        <div className="line">
+          <button className="back-btn" onClick={() => back()}>
+            назад
+          </button>
+          <h1 className="_error">404</h1>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="container">
-      <button className="back-btn" onClick={() => back()}>
-        назад
-      </button>
+      <div className="line">
+        <button className="back-btn" onClick={() => back()}>
+          назад
+        </button>
+        <h1>{product.title}</h1>
+      </div>
       <div className="info-wrapper">
         <div className="photo">
           <ul>
-            <li>
-              <img src={product.image} alt="" />
-            </li>
+            {product.photos.map((i, index: number) => {
+              return (
+                <li key={index}>
+                  <img src={i} alt="" />
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="main">
-          <img src={product.image} alt="" />
+          <div className="rewe">
+            {product.photos.map((photo, index: number) => {
+              return <img key={index} src={photo} alt="" />;
+            })}
+          </div>
         </div>
         <div className="full-info"></div>
       </div>

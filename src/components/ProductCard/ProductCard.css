@@ -39,6 +39,11 @@ img {
   justify-content: space-between;
 }
 
+.card-desc h3 {
+  font-family: 'Playwrite';
+  font-weight: 300;
+}
+
 .rating {
   position: absolute;
   top: 20px;

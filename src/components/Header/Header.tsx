@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className="container">
       <header className="header">
-        <h1 className="logo">Логотип</h1>
+        <h1 className="logo">SneakerLand</h1>
         <div className="menu">
           <ul>
             <li>
