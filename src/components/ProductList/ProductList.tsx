@@ -59,9 +59,7 @@ export default function ProductList() {
           {items.map((item, index: number) => {
             return (
               <li key={item.id}>
-                <Link to={`/item/${item.id}`}>
-                  <ProductCard product={item} index={index} />
-                </Link>
+                <ProductCard product={item} index={index} />
               </li>
             );
           })}

@@ -3,11 +3,15 @@ import products from '../../data';
 import type { Product } from '../../data';
 
 import './ProductInfo.css';
+import { useContext } from 'react';
+import { CartContext } from '../../App';
 
 export default function ProductInfo() {
   const { id } = useParams();
   const product = products.find((item: Product) => item.id === parseInt(id));
   const navigate = useNavigate();
+
+  const { addCart } = useContext(CartContext);
 
   if (!product) {
     console.log(product);
@@ -20,19 +24,26 @@ export default function ProductInfo() {
 
   return (
     <div className="container">
-      <div className="details">
-        <button className="back-btn" onClick={() => back()}>
-          назад
-        </button>
-        <div className="main-content">
-          <div className="img">
-            <img src={product.image} alt="" />
-          </div>
-
-          <p>{product.title}</p>
-          {product.fulldesc}
+      <button className="back-btn" onClick={() => back()}>
+        назад
+      </button>
+      <div className="info-wrapper">
+        <div className="photo">
+          <ul>
+            <li>
+              <img src={product.image} alt="" />
+            </li>
+          </ul>
         </div>
+        <div className="main">
+          <img src={product.image} alt="" />
+        </div>
+        <div className="full-info"></div>
       </div>
     </div>
   );
 }
+
+// <button onClick={() => addCart(product.id)} className="to-cart">
+//   В корзину
+// </button>

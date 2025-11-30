@@ -1,6 +1,8 @@
 import './ProductCard.css';
 import type { Product } from '../../data';
-import Cart from '../Cart/Cart';
+import { useContext } from 'react';
+import { CartContext } from '../../App';
+import { Link } from 'react-router-dom';
 
 interface TypeOfProduct {
   product: Product;
@@ -8,15 +10,20 @@ interface TypeOfProduct {
 }
 
 export default function ProductCard({ product, index }: TypeOfProduct) {
+  const { addCart } = useContext(CartContext);
+
   return (
     <div className="card">
-      <img src={product.image} alt="" />
-
+      <Link to={`/item/${product.id} `}>
+        <img src={product.image} alt="" />
+        <h4 className="rating">{product.rating}</h4>
+      </Link>
       <div className="card-desc">
         <h2>{product.price} ₽</h2>
         <h3>{product.title}</h3>
-
-        <button className="to-cart">В корзину</button>
+        <button onClick={() => addCart(product.id)} className="to-cart">
+          В корзину
+        </button>
       </div>
     </div>
   );

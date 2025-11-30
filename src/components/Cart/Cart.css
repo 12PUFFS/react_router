@@ -1,9 +1,13 @@
 .cartinochka {
-  /* position: relative; */
   background: black;
   color: white;
   padding: 15px;
   cursor: pointer;
+}
+
+a {
+  display: flex;
+  gap: 20px;
 }
 
 .cart-count {
@@ -20,6 +24,12 @@
   height: 20px;
 }
 
+.cart-btns {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
 .ty {
   position: absolute;
   top: 80px;
@@ -30,34 +40,77 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   display: none;
-  max-height: 400px;
-  overflow: hidden; /* Меняем на hidden */
 }
 
 .ol {
+  margin-bottom: 10px;
   display: flex;
-
   align-items: center;
 }
 
+.rr {
+  background: #000;
+  color: white;
+}
+
 .empty-cart {
+  /* position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
 
 .ty.active {
-  display: flex; /* Меняем на flex */
-  flex-direction: column; /* Добавляем направление */
-  height: 500px;
+  display: flex;
+  flex-direction: column;
+  /* min-height: 500px; */
+  max-height: 70vh; /* Добавляем ограничение высоты */
 }
 
 .ty.active ul {
-  gap: 20px; /* Уменьшаем отступ */
+  gap: 10px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* Добавляем прокрутку для списка */
   width: 100%;
-  flex: 1; /* Занимает все доступное пространство */
-  margin: 0;
+  flex: 1;
+  margin: 50px 0;
   padding: 0;
+  overflow-y: auto; /* Включаем скролл */
+  overflow-x: hidden;
+  padding-right: 5px; /* Место для скроллбара */
+}
+
+.ll {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Стилизация скроллбара */
+.ty.active ul::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ty.active ul::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+
+.ty.active ul::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.ty.active ul::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Для Firefox */
+.ty.active ul {
+  scrollbar-width: thin;
+  scrollbar-color: #c1c1c1 #f1f1f1;
 }
 
 .empty-cart {
@@ -68,27 +121,27 @@
 
 .ty.active li {
   list-style: none;
-  padding: 15px; /* Уменьшаем padding */
+  padding: 15px;
   border-radius: 12px;
   display: flex;
   gap: 15px;
-  background: #f8f9fa; /* Добавляем фон для видимости */
+  background: #f8f9fa;
   border: 1px solid #e9ecef;
   margin-right: 10px;
   align-items: center;
-  margin-top: 20px;
+  flex-shrink: 0; /* Предотвращаем сжатие элементов */
 }
 
 .close-btn {
   margin-left: auto;
   display: flex;
-  padding: 10px;
+  padding: 20px;
   border-radius: 100%;
   background: #000;
   color: white;
   align-items: center;
   justify-content: center;
-  height: 20px; /* Увеличиваем для кликабельности */
+  height: 20px;
   width: 20px;
   cursor: pointer;
   font-size: 12px;
@@ -113,17 +166,11 @@ button {
   justify-content: space-between;
 }
 
-/* Дополнительно для лучшего скролла */
-.ty.active ul::-webkit-scrollbar {
-  width: 4px;
-}
-
-.ty.active ul::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-.ty.active ul::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
+/* Адаптивность */
+@media (max-width: 768px) {
+  .ty {
+    width: 90vw;
+    right: 5vw;
+    max-height: 60vh;
+  }
 }

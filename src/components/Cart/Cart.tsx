@@ -1,46 +1,58 @@
-import { useState } from 'react';
-import products from '../../data';
+import { useState, useContext } from 'react';
 import './Cart.css';
+import { CartContext } from '../../App';
+import Modal from '../Modal/Modal';
+import { Link } from 'react-router-dom';
 
 export default function Cart() {
   const [activeCart, setActiveCart] = useState(false);
 
+  const { cart, deleleAllCart, setModal, modal } = useContext(CartContext);
+
+  const openModal = () => {
+    setModal(true);
+  };
+
   return (
     <div>
+      {/* ✅ Исправлено: onClose вместо onClick */}
+      {modal && <Modal onClose={() => setModal(false)} />}
+
       <div className="cartinochka">
         <p onClick={() => setActiveCart(!activeCart)} className="cart">
           моя корзина
         </p>
       </div>
-      <span className="cart-count">{products.length}</span>
+      <span className="cart-count">{cart.length}</span>
       <div className={`ty ${activeCart ? 'active' : ''}`}>
         <div className="ol">
-          <h2>корзина - {products.length}</h2>
-          <div onClick={() => setActiveCart(!activeCart)} className="close-btn">
-            X
+          <h2>Перейти в корзину</h2>
+          <div className="cart-btns">
+            <button onClick={openModal}>удалить все</button>
+            <button
+              onClick={() => setActiveCart(!activeCart)}
+              className="close-btn"
+            >
+              X
+            </button>
           </div>
         </div>
-        {products.length === 0 ? (
-          <ul className="empty-cart">корзина пуста</ul>
-        ) : (
-          <ul>
-            {products.map((item, index) => {
-              return (
-                <li key={item.id}>
-                  <img className="pii" src={item.image} alt="" />
-                  <div className="tt">
-                    <p>{item.title}</p>
-                    <p>{item.description}</p>
-                  </div>
-                  <div className="btns">
-                    <button>Купить</button>
-                    <button>Удалить</button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
-        )}
+        <ul>
+          {cart.length === 0 && <p className="empty-cart">корзина пуста</p>}
+          {cart.map((item) => (
+            <li key={item.id}>
+              <Link to={`/item/${item.id}`}>
+                <img className="pii" src={item.image} alt={item.title} />
+                <div className="ll">
+                  <h3>{item.title}</h3>
+                  <p>{item.price} ₽</p>
+                  <p>{item.rating}</p>
+                </div>
+              </Link>
+              <button onClick={openModal}>удалить</button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
