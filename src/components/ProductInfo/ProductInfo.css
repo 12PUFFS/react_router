@@ -7,15 +7,6 @@
   /* margin-bottom: 50px; */
 }
 
-.details {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  margin: 30px 0;
-  border: 1px solid #f0f0f0;
-}
-
 .back-btn {
   /* background: white; */
   /* border: 1px solid #e0e0e0; */
@@ -30,7 +21,7 @@
   /* display: inline-flex; */
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); */
   position: sticky;
   top: 20px;
 }
@@ -44,8 +35,13 @@ h1 {
   margin-top: 50px;
   display: flex;
   margin-bottom: 50px;
+  /* border: 1px solid; */
 }
 .photo img {
+  width: 100%;
+}
+
+.to-cart {
   width: 100%;
 }
 
@@ -54,21 +50,39 @@ h1 {
   /* border: 1px solid; */
   height: fit-content;
   position: sticky;
-  top: 20px;
+  top: 50px;
   /* margin-top: 50px; */
 }
 
 .main {
   background: #fefefe;
   width: 100%;
-  height: 2000px;
+  /* height: 2000px; */
 }
 .full-info {
   background: rgb(255, 255, 255);
   /* border: 2px solid; */
   width: 100%;
   position: sticky;
-  top: 20px;
+  height: 550px;
+  top: 50px;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.current-color {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-color-img {
+  width: 15%;
+  border: 1px solid;
+  border-radius: 12px;
 }
 
 .line {

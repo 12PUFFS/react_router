@@ -62,7 +62,26 @@ export default function ProductInfo() {
             })}
           </div>
         </div>
-        <div className="full-info"></div>
+        <div className="full-info">
+          <div className="full-text">
+            {product.title}
+            <ul>
+              Описание
+              {product.desc.map((item, index: number) => {
+                return <li key={index}>-{item}</li>;
+              })}
+            </ul>
+            <div className="current-color">
+              <p>текущая расцветка:</p>
+              <img className="current-color-img" src={product.image} alt="" />
+            </div>
+          </div>
+          <div className="full-desc">
+            <button onClick={() => addCart(product.id)} className="to-cart">
+              В корзину
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -71,6 +71,9 @@ export default function ProductList() {
           >
             новое
           </p>
+          <div className="price-filter">
+            <div>фильтры по цене</div>
+          </div>
         </div>
 
         <ul>
