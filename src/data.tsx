@@ -1,7 +1,7 @@
 export interface Product {
   id: number;
   title: string;
-  price: number;
+  price: string;
   image: string;
   photos: string[];
   description: string;
@@ -236,6 +236,17 @@ const products: Product[] = [
       'https://img.brandshop.ru/cache/products/b/bb550lez-5_1104x1104.webp',
       'https://img.brandshop.ru/cache/products/b/bb550lez-6_1104x1104.webp',
     ],
+    desc: [
+      'Материал: Верх - кожа, замша; Подкладка - текстиль; Низ - резина',
+      'Страна-производитель: Вьетнам',
+      'Верх из натуральной кожи и замши',
+      'Панели с перфорацией',
+      'Классическая система шнуровки',
+      'Стабилизационная вставка в пяточной области',
+      'Прочная резиновая подошва',
+      'Износостойкая подметка',
+      'Контрастный брендинг',
+    ],
   },
   {
     id: 9,
@@ -255,6 +266,52 @@ const products: Product[] = [
       'https://img.brandshop.ru/cache/products/i/ih8659-4_1104x1104.webp',
       'https://img.brandshop.ru/cache/products/i/ih8659-5_1104x1104.webp',
       'https://img.brandshop.ru/cache/products/i/ih8659-6_1104x1104.webp',
+    ],
+    desc: [
+      'Материал: Верх - кожа; Подкладка - текстиль; Низ - резина',
+      'Страна-производитель: Индонезия',
+      'Верх из натуральной кожи',
+      'Низкий силуэт',
+      'Классическая система шнуровки',
+      'Стабилизационная вставка в пяточной области',
+      'Усиленная носочная область',
+      'Перфорация в боковой области',
+      'Прочная резиновая подошва',
+      'Износостойкая подметка',
+      'Контрастный брендинг',
+    ],
+  },
+  {
+    id: 10,
+    title: 'Кроссовки adidas Originals Forum Bold Stripes',
+    price: '6 400',
+    image: 'https://img.brandshop.ru/cache/products/i/id6843-0_1104x1104.webp',
+    description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
+    category: 'shoes',
+    fulldesc:
+      'Кроссовки Nike Dunk Low Retro - это стильная и универсальная модель...',
+    rating: 4.4,
+    photos: [
+      'https://img.brandshop.ru/cache/products/i/id6843-0_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/i/id6843-1_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/i/id6843-2_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/i/id6843-3_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/i/id6843-4_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/i/id6843-5_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/i/id6843-6_1104x1104.webp',
+    ],
+    desc: [
+      'Материал: Верх - кожа; Подкладка - текстиль; Низ - резина',
+      'Страна-производитель: Индонезия',
+      'Верх из натуральной кожи',
+
+      'Классическая система шнуровки',
+      'Стабилизационная вставка в пяточной области',
+      'Перфорация в носочной и боковой области',
+      'Увеличенная резиновая подошва',
+      'Износостойкая подметка',
+      'Объемный брендинг',
+      'Фирменный патч',
     ],
   },
 ];

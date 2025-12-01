@@ -13,20 +13,21 @@
 }
 
 .filters {
-  /* background: #f8f9fa; */
+  background: #f8f9fa; */
   background: white;
   padding: 20px;
   border-radius: 12px;
-  /* margin-bottom: 30px; */
+  
   border: 1px solid #e9ecef;
-  /* height: 545px; */
+  
   width: 300px;
   position: sticky;
   top: 80px;
-  display: flex;
+  display: flex
+;
   justify-content: center;
   align-items: center;
-  /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .list {
