@@ -32,7 +32,10 @@ export default function App() {
 
   const addCart = (id: number) => {
     const product = products.find((i) => i.id === id);
-    setCart((prev) => {
+    if (!product) {
+      return;
+    }
+    setCart((prev: Product[]) => {
       if (!prev.find((item) => item.id === id)) {
         return [...prev, product];
       }
@@ -47,7 +50,7 @@ export default function App() {
     }
   };
 
-  const deleleAllCart = () => {
+  const deleteAllCart = () => {
     setCart([]);
     setModal(false);
   };
@@ -59,7 +62,7 @@ export default function App() {
         setCart,
         addCart,
         removeFromCart,
-        deleleAllCart,
+        deleteAllCart,
         setModal,
         modal,
       }}

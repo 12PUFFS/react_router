@@ -9,7 +9,7 @@ interface TypeOfProduct {
   index: number;
 }
 
-export default function ProductCard({ product, index }: TypeOfProduct) {
+export default function ProductCard({ product }: TypeOfProduct) {
   const { addCart } = useContext(CartContext);
 
   return (

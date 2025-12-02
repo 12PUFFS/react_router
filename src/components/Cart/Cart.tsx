@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Cart() {
   const [activeCart, setActiveCart] = useState(false);
 
-  const { cart, deleleAllCart, setModal, modal } = useContext(CartContext);
+  const { cart, setModal, modal } = useContext(CartContext);
 
   const openModal = () => {
     setModal(true);
@@ -15,7 +15,6 @@ export default function Cart() {
 
   return (
     <div>
-      {/* ✅ Исправлено: onClose вместо onClick */}
       {modal && <Modal onClose={() => setModal(false)} />}
 
       <div className="cartinochka">

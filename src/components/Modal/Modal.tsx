@@ -2,8 +2,11 @@ import { useContext } from 'react';
 import './Modal.css';
 import { CartContext } from '../../App';
 
-export default function Modal({ onClose }) {
-  // ✅ Добавляем пропс onClose
+interface ModalType {
+  onClose: () => void;
+}
+
+export default function Modal({ onClose }: ModalType) {
   const { cart, removeFromCart } = useContext(CartContext);
 
   return (
@@ -20,7 +23,6 @@ export default function Modal({ onClose }) {
           ))}
           <div className="modal-btn">
             <button onClick={onClose}>отмена</button>
-            {/* ✅ Используем onClose */}
           </div>
         </div>
       </div>

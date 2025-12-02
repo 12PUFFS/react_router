@@ -1,4 +1,9 @@
-export default function Loading({ setActive, active }) {
+interface SetActiveType {
+  setActive: (category: string) => void;
+  active: string;
+}
+
+export default function Loading({ setActive, active }: SetActiveType) {
   return (
     <div className="wrapper container">
       <div className="filters">тут фильтры</div>
