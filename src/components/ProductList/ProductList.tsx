@@ -1,21 +1,19 @@
-import { useEffect, useState, useContext } from 'react';
-// import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
 import ProductCard from '../ProductCard/ProductCard';
 
 import './ProductList.css';
 import products from '../../data';
 import type { Product } from '../../data';
-// import ProductInfo from '../ProductInfo/ProductInfo';
+
 import Loading from '../Loading/Loading';
 import EmptyProductList from './EmptyProductList';
-import { CartContext } from '../../App';
 
 export default function ProductList() {
   const [items, setItems] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState('all');
   const [searchValue, setSearchValue] = useState('');
-  // const {addCart} = useContext(CartContext)
 
   useEffect(() => {
     setTimeout(() => {

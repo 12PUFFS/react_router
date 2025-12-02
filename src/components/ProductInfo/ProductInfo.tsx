@@ -94,7 +94,3 @@ export default function ProductInfo() {
     </div>
   );
 }
-
-// <button onClick={() => addCart(product.id)} className="to-cart">
-//   В корзину
-// </button>

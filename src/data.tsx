@@ -7,7 +7,7 @@ export interface Product {
   description: string;
   fulldesc: string;
   category: string;
-  desc: string;
+  desc: string[];
   rating: number;
 }
 
@@ -15,7 +15,7 @@ const products: Product[] = [
   {
     id: 1,
     title: 'Кроссовки NIKE Dunk Low Retro',
-    price: 16.979,
+    price: '16 979',
     image:
       'https://img.brandshop.ru/cache/products/f/fd9749-400-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
@@ -47,7 +47,7 @@ const products: Product[] = [
   {
     id: 2,
     title: 'кроссовки Nike Air Jordan 1 High Golf Camo',
-    price: 23.899,
+    price: '23 899',
     image:
       'https://img.brandshop.ru/cache/products/d/dq0660-300-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
@@ -72,7 +72,7 @@ const products: Product[] = [
   {
     id: 3,
     title: 'Кроссовки Nike P-6000',
-    price: 23.899,
+    price: '23 899',
     image:
       'https://img.brandshop.ru/cache/products/c/cn0149-001-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
@@ -104,7 +104,7 @@ const products: Product[] = [
   {
     id: 4,
     title: 'Мужские кроссовки Cortez Leather',
-    price: 14.999,
+    price: '14 999',
     image:
       'https://img.brandshop.ru/cache/products/d/dm4044-106-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
@@ -135,7 +135,7 @@ const products: Product[] = [
   {
     id: 5,
     title: 'Мужские New Balance кроссовки M1000F',
-    price: 14.999,
+    price: '14 999',
     image: 'https://img.brandshop.ru/cache/products/m/m1000f-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
     category: 'shoes',
@@ -159,7 +159,7 @@ const products: Product[] = [
   {
     id: 6,
     title: 'Мужские кроссовки MR530SG',
-    price: 14.999,
+    price: '14 999',
     image: 'https://img.brandshop.ru/cache/products/m/mr530sg-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
     category: 'shoes',
@@ -190,7 +190,7 @@ const products: Product[] = [
   {
     id: 7,
     title: 'Мужские кроссовки New Balance MR530EWB',
-    price: 14.99,
+    price: '14 990',
     image:
       'https://img.brandshop.ru/cache/products/m/mr530ewb-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
@@ -219,7 +219,7 @@ const products: Product[] = [
   {
     id: 8,
     title: 'Мужские кроссовки New Balance BB550LEZ',
-    price: 14.99,
+    price: '14 990',
     image:
       'https://img.brandshop.ru/cache/products/b/bb550lez-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
@@ -251,7 +251,7 @@ const products: Product[] = [
   {
     id: 9,
     title: 'Мужские кроссовки Adidas Superstar II',
-    price: 14.99,
+    price: '14 990',
     image: 'https://img.brandshop.ru/cache/products/i/ih8659-0_1104x1104.webp',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
     category: 'shoes',

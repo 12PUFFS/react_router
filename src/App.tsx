@@ -4,26 +4,43 @@ import Header from './components/Header/Header';
 import ProductList from './components/ProductList/ProductList';
 import ProductInfo from './components/ProductInfo/ProductInfo';
 import { createContext, useState } from 'react';
-import products from './data';
+import products, { type Product } from './data';
 import Cart from './components/Cart/Cart';
 
-export const CartContext = createContext();
+interface SetCart {
+  cart: Product[];
+  setCart: React.Dispatch<React.SetStateAction<Product[]>>;
+  addCart: (id: number) => void;
+  removeFromCart: (id: number) => void;
+  deleteAllCart: () => void;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  modal: boolean;
+}
+export const CartContext = createContext<SetCart>({
+  cart: [],
+  setCart: () => {},
+  addCart: () => {},
+  removeFromCart: () => {},
+  deleteAllCart: () => {},
+  setModal: () => {},
+  modal: false,
+});
 
 export default function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<Product[]>([]);
   const [modal, setModal] = useState(false);
-  const addCart = (id) => {
+
+  const addCart = (id: number) => {
     const product = products.find((i) => i.id === id);
     setCart((prev) => {
       if (!prev.find((item) => item.id === id)) {
-        // Если НЕТ в корзине
-        return [...prev, product]; // Тогда добавляем
+        return [...prev, product];
       }
-      return prev; // Уже есть - не добавляем
+      return prev;
     });
   };
 
-  const removeFromCart = (id) => {
+  const removeFromCart = (id: number) => {
     setCart((prev) => prev.filter((p) => p.id !== id));
     if (cart.length === 1) {
       setModal(false);
@@ -52,7 +69,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/item/:id" element={<ProductInfo />}>
-            <Route path="cart" element={<Cart />} /> {/* /item/1/cart */}
+            <Route path="cart" element={<Cart />} />
           </Route>
         </Routes>
       </BrowserRouter>
