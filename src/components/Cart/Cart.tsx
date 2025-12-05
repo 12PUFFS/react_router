@@ -45,6 +45,11 @@ export default function Cart() {
                 <div className="ll">
                   <h3>{item.title}</h3>
                   <p>{item.price} ₽</p>
+                  {item.selectedSize && (
+                    <p>
+                      <strong>Размер: {item.selectedSize}</strong>
+                    </p>
+                  )}
                   <p>{item.rating}</p>
                 </div>
               </Link>

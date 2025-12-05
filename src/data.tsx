@@ -9,6 +9,8 @@ export interface Product {
   category: string;
   desc: string[];
   rating: number;
+  variants: [];
+  availableSizes: number[];
 }
 
 const products: Product[] = [
@@ -43,6 +45,11 @@ const products: Product[] = [
       'Износостойкая подметка',
       'Контрастный брендинг',
     ],
+    variants: [
+      'https://img.brandshop.ru/cache/products/f/fd9749-400-0_1104x1104.webp',
+      'https://img.brandshop.ru/cache/products/h/hj9093-030-0_1104x1104.webp',
+    ],
+    availableSizes: [40, 41, 42, 43, 44, 45, 46],
   },
   {
     id: 2,
@@ -68,6 +75,8 @@ const products: Product[] = [
       'Материал: Верх - кожа; Подкладка - текстиль; Низ - резина',
       'Страна-производитель: Китай',
     ],
+    variants: [],
+    availableSizes: [39, 40, 41, 42, 43, 44],
   },
   {
     id: 3,
@@ -100,6 +109,10 @@ const products: Product[] = [
       'Износостойкая рельефная подметка',
       'Объемный брендинг',
     ],
+    variants: [
+      'https://img.brandshop.ru/cache/products/c/cn0149-001-0_1104x1104.webp',
+    ],
+    availableSizes: [38, 39, 40, 41, 42, 43, 44, 45],
   },
   {
     id: 4,
@@ -131,6 +144,8 @@ const products: Product[] = [
       'Износостойкая рельефная подметка',
       'Контрастный брендинг',
     ],
+    variants: [],
+    availableSizes: [40, 41, 42, 43, 44],
   },
   {
     id: 5,
@@ -155,6 +170,8 @@ const products: Product[] = [
       'Материал: Верх - кожа, текстиль; Подкладка - текстиль; Низ - резина',
       'Страна-производитель: Китай',
     ],
+    variants: [],
+    availableSizes: [39, 40, 41, 42, 43, 44, 45],
   },
   {
     id: 6,
@@ -186,6 +203,8 @@ const products: Product[] = [
       'Петля на заднике',
       'Промежуточная подошва из EVA',
     ],
+    variants: [],
+    availableSizes: [38, 39, 40, 41, 42, 43],
   },
   {
     id: 7,
@@ -215,6 +234,8 @@ const products: Product[] = [
       'Перфорация в носочной, боковой и задней области',
       'Усиленная носочная область',
     ],
+    variants: [],
+    availableSizes: [40, 41, 42, 43, 44, 45],
   },
   {
     id: 8,
@@ -247,6 +268,8 @@ const products: Product[] = [
       'Износостойкая подметка',
       'Контрастный брендинг',
     ],
+    variants: [],
+    availableSizes: [39, 40, 41, 42, 43],
   },
   {
     id: 9,
@@ -280,6 +303,8 @@ const products: Product[] = [
       'Износостойкая подметка',
       'Контрастный брендинг',
     ],
+    variants: [],
+    availableSizes: [40, 41, 42, 43, 44, 45, 46],
   },
   {
     id: 10,
@@ -304,7 +329,6 @@ const products: Product[] = [
       'Материал: Верх - кожа; Подкладка - текстиль; Низ - резина',
       'Страна-производитель: Индонезия',
       'Верх из натуральной кожи',
-
       'Классическая система шнуровки',
       'Стабилизационная вставка в пяточной области',
       'Перфорация в носочной и боковой области',
@@ -313,6 +337,8 @@ const products: Product[] = [
       'Объемный брендинг',
       'Фирменный патч',
     ],
+    variants: [],
+    availableSizes: [39, 40, 41, 42, 43, 44],
   },
 ];
 

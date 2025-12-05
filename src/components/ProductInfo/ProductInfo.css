@@ -8,7 +8,7 @@
 
 .back-btn {
   color: #000;
-  padding: 14px 28px;
+  /* padding: 14px 28px; */
   border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
@@ -25,7 +25,7 @@ h1 {
 }
 
 .info-wrapper {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   display: flex;
   margin-bottom: 50px;
 }
@@ -58,6 +58,46 @@ h1 {
   width: 100%;
 }
 
+.current-size {
+  /* border: 1px solid;  */
+ display: flex; 
+  /* justify-content: space-between; */
+  /* width: fit-content; */
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 20px 0; */
+}
+
+.current-size-item.active {
+  background: #000;
+  color: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  /* border-radius: 50%; */
+}
+
+.current-size-item.active:hover {
+  /* border-radius: 50%; */
+}
+
+.current-size-item {
+  padding: 20px 20px;
+  background: #f2f2f2;
+
+  /* border: 1px solid; */
+}
+
+.price button{
+  background: #40ff018e;
+  width: 100%;
+  padding: 12px 20px;
+}
+
+.price{
+  /* padding: 20px; */
+  display: flex;
+  align-items: center;
+}
+
 /* .full-info - ИСПРАВЛЕННАЯ ВЕРСИЯ */
 .full-info {
   background: #fff;
@@ -82,14 +122,14 @@ h1 {
   list-style: none;
 }
 
-.full-text li {
+/* .full-text li {
   padding: 0 0 16px 0;
   border-bottom: 1px solid #f0f0f0;
   color: #000;
   font-size: 14px;
   line-height: 1.5;
   position: relative;
-}
+} */
 
 .main-btn {
   display: flex;
@@ -111,13 +151,6 @@ h1 {
   padding-bottom: 0;
 }
 
-.full-text li:before {
-  content: '—';
-  position: absolute;
-  left: -12px;
-  color: #000;
-}
-
 .current-color {
   display: flex;
   flex-direction: column;
@@ -137,17 +170,54 @@ h1 {
   letter-spacing: 1px;
 }
 
+.current-color-img.active{
+  border: 3px solid;
+}
+
+.pol{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
 .current-color-img {
   width: 80px;
   height: 80px;
   border: 1px solid #ddd;
   border-radius: 2px;
   object-fit: cover;
+  display: flex;
 }
 
 .full-desc {
   margin-top: auto;
-  border-top: 1px solid #eee;
+  /* border-top: 1px solid #eee; */
+}
+
+ .item.hide{
+  display: none;
+}
+
+.item .active{
+  display: flex;
+}
+
+.full-desc ul{
+  margin: 10px;
+}
+
+.open-lock{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  /* border: 1px solid; */
+}
+
+.open{
+  /* padding: 10px 20px; */
+  cursor: pointer;
+  /* background: #f2f2f2; */
 }
 
 .full-desc .to-cart {
@@ -161,6 +231,12 @@ h1 {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.to-cart {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
 .line {

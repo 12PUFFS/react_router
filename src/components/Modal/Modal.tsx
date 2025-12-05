@@ -7,7 +7,7 @@ interface ModalType {
 }
 
 export default function Modal({ onClose }: ModalType) {
-  const { cart, removeFromCart } = useContext(CartContext);
+  const { cart, removeFromCart, selectedSize } = useContext(CartContext);
 
   return (
     <div className="modal-wrapper">
@@ -18,6 +18,11 @@ export default function Modal({ onClose }: ModalType) {
             <div key={item.id} className="modal-item">
               <img src={item.image} alt="" />
               <span>{item.title}</span>
+              {item.selectedSize && (
+                <p>
+                  <strong>Размер: {item.selectedSize}</strong>
+                </p>
+              )}
               <button onClick={() => removeFromCart(item.id)}>удалить</button>
             </div>
           ))}

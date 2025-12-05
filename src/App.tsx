@@ -15,6 +15,8 @@ interface SetCart {
   deleteAllCart: () => void;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
+  currentSize: number | null; // Размер - это число или null
+  setCurrentSize: React.Dispatch<React.SetStateAction<number | null>>;
 }
 export const CartContext = createContext<SetCart>({
   cart: [],
@@ -24,20 +26,27 @@ export const CartContext = createContext<SetCart>({
   deleteAllCart: () => {},
   setModal: () => {},
   modal: false,
+  currentSize: null,
+  setCurrentSize: () => {},
 });
 
 export default function App() {
   const [cart, setCart] = useState<Product[]>([]);
   const [modal, setModal] = useState(false);
-
+  const [currentSize, setCurrentSize] = useState<number | null>(null);
   const addCart = (id: number) => {
     const product = products.find((i) => i.id === id);
     if (!product) {
       return;
     }
+
+    const productWithSize = {
+      ...product,
+      selectedSize: currentSize,
+    };
     setCart((prev: Product[]) => {
       if (!prev.find((item) => item.id === id)) {
-        return [...prev, product];
+        return [...prev, productWithSize];
       }
       return prev;
     });
@@ -65,15 +74,16 @@ export default function App() {
         deleteAllCart,
         setModal,
         modal,
+        currentSize,
+        setCurrentSize,
       }}
     >
       <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<ProductList />} />
-          <Route path="/item/:id" element={<ProductInfo />}>
-            <Route path="cart" element={<Cart />} />
-          </Route>
+          <Route path="/item/:id" element={<ProductInfo />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </BrowserRouter>
     </CartContext.Provider>
