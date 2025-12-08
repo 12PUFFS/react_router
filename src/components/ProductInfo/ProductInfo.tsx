@@ -82,36 +82,42 @@ export default function ProductInfo() {
       </button> */}
 
       <div className="info-wrapper">
-        <div className="main">
-          <div className="photo">
-            <ul>
-              {product.photos.slice(0, 5).map((photo, index: number) => {
-                return (
-                  <li key={index}>
-                    <img onClick={() => setSelectedPhoto(index)} src={photo} />
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <div className="o">
-            <img
-              src={product.photos[selectedPhoto]}
-              alt={`${product.title} - основное изображение`}
-            />
-            <div className="options">
-              <div className="div-prev">
-                <button onClick={handlePrevPhoto} className="prev">
-                  ←
-                </button>
-              </div>
-              <div className="div-next">
-                <button onClick={handleNextPhoto} className="next">
-                  →
-                </button>
+        <div className="main-content">
+          <div className="main">
+            <div className="photo">
+              <ul>
+                {product.photos.slice(0, 5).map((photo, index: number) => {
+                  return (
+                    <li key={index}>
+                      <img
+                        onClick={() => setSelectedPhoto(index)}
+                        src={photo}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div className="o">
+              <img
+                src={product.photos[selectedPhoto]}
+                alt={`${product.title} - основное изображение`}
+              />
+              <div className="options">
+                <div className="div-prev">
+                  <button onClick={handlePrevPhoto} className="prev">
+                    ←
+                  </button>
+                </div>
+                <div className="div-next">
+                  <button onClick={handleNextPhoto} className="next">
+                    →
+                  </button>
+                </div>
               </div>
             </div>
           </div>
+          <div className="qa">ewrtrytfy</div>
         </div>
         {/* <div className="rehtujy">характеристики</div> */}
         <div className="full-info">
