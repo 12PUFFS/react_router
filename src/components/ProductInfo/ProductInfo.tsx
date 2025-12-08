@@ -77,15 +77,15 @@ export default function ProductInfo() {
 
   return (
     <div className="container">
-      <button className="back-btn" onClick={() => back()}>
+      {/* <button className="back-btn" onClick={() => back()}>
         назад
-      </button>
+      </button> */}
 
       <div className="info-wrapper">
         <div className="main">
           <div className="photo">
             <ul>
-              {product.photos.map((photo, index: number) => {
+              {product.photos.slice(0, 5).map((photo, index: number) => {
                 return (
                   <li key={index}>
                     <img onClick={() => setSelectedPhoto(index)} src={photo} />
@@ -131,24 +131,7 @@ export default function ProductInfo() {
               );
             })}
           </ul>
-          <div className="main-btn">
-            <button
-              onClick={() => alert(`Ура, ты купил ${product.title}`)}
-              className="to-buy"
-            >
-              Купить
-            </button>
 
-            {/* 🔥 ИСПРАВЛЕНО: используем новую функцию */}
-            <button onClick={handleAddToCart} className="to-cart">
-              В корзину
-              {currentSize && <p>Размер: {currentSize}</p>}
-            </button>
-
-            <div className="price">
-              <button>{product.price} ₽</button>
-            </div>
-          </div>
           <div className="current-color">
             <p>текущая расцветка:</p>
             {/* <img
@@ -171,89 +154,26 @@ export default function ProductInfo() {
           </div>
 
           <div className="full-desc">
-            <ul>
-              <div className="open-lock">
-                <p>Описание</p>
+            <div className="full-info">
+              <div className="main-btn">
                 <button
-                  onClick={() => setOpenItem(!openItem)}
-                  className="open"
-                  aria-label={
-                    openItem ? 'Скрыть описание' : 'Показать описание'
-                  }
+                  onClick={() => alert(`Ура, ты купил ${product.title}`)}
+                  className="to-buy"
                 >
-                  {openItem ? '−' : '+'}
+                  Купить
                 </button>
+
+                {/* 🔥 ИСПРАВЛЕНО: используем новую функцию */}
+                <button onClick={handleAddToCart} className="to-cart">
+                  В корзину
+                  {currentSize && <p>Размер: {currentSize}</p>}
+                </button>
+
+                <div className="price">
+                  <button>{product.price} ₽</button>
+                </div>
               </div>
-              {product.desc.map((item, index: number) => {
-                return (
-                  <li
-                    className={`item ${openItem ? 'active' : 'hide'}`}
-                    key={index}
-                  >
-                    - {item}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        </div>
-        <div className="full-info">
-          <h3>доступные размеры</h3>
-          <ul className="current-size">
-            {product.availableSizes.map((size, index: number) => {
-              return (
-                <button
-                  onClick={() => setCurrentSize(size)}
-                  className={`current-size-item ${
-                    currentSize === size ? 'active' : ''
-                  }`}
-                  key={index}
-                >
-                  {size}
-                </button>
-              );
-            })}
-          </ul>
-          <div className="main-btn">
-            <button
-              onClick={() => alert(`Ура, ты купил ${product.title}`)}
-              className="to-buy"
-            >
-              Купить
-            </button>
-
-            {/* 🔥 ИСПРАВЛЕНО: используем новую функцию */}
-            <button onClick={handleAddToCart} className="to-cart">
-              В корзину
-              {currentSize && <p>Размер: {currentSize}</p>}
-            </button>
-
-            <div className="price">
-              <button>{product.price} ₽</button>
             </div>
-          </div>
-          <div className="current-color">
-            <p>текущая расцветка:</p>
-            {/* <img
-              className="current-color-img"
-              src={product.variants}
-              alt={`${product.title} - расцветка`}
-            /> */}
-            <div className="variants">
-              {product.variants.map((variant, index: number) => {
-                return (
-                  <img
-                    className="current-color-img"
-                    key={index}
-                    src={variant}
-                    alt=""
-                  />
-                );
-              })}
-            </div>
-          </div>
-
-          <div className="full-desc">
             <ul>
               <div className="open-lock">
                 <p>Описание</p>
