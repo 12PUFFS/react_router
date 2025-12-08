@@ -10,17 +10,33 @@ export default function ProductInfo() {
   const { id } = useParams();
   const product = products.find((item: Product) => item.id === parseInt(id));
   const navigate = useNavigate();
+  const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
   const [openItem, setOpenItem] = useState(false);
   const { addCart, currentSize, setCurrentSize } = useContext(CartContext);
 
   if (!product) {
-    console.log(product);
     return <div>Товар не найден</div>;
   }
 
   const back = () => {
     navigate(-1);
   };
+
+  // 🔥 НОВАЯ ФУНКЦИЯ для добавления в корзину
+  const handleAddToCart = () => {
+    if (!currentSize) {
+      alert('Выберите размер');
+      return;
+    }
+    // ⚠️ ВНИМАНИЕ: addCart должен быть обновлён в App.tsx
+    // чтобы принимать 2 параметра: (id, size)
+    addCart(product.id, currentSize);
+  };
+
+  // // 🔥 Выбираем первую фотографию при загрузке
+  // if (!selectedPhoto && product.photos.length > 0) {
+  //   setSelectedPhoto(product.photos[0]);
+  // }
 
   if (!product.photos) {
     return (
@@ -35,39 +51,75 @@ export default function ProductInfo() {
     );
   }
 
+  // if (selectedPhoto > 0) {
+  //   setSelectedPhoto(selectedPhoto.lenght - 1);
+  // }
+
+  const handlePrevPhoto = () => {
+    if (selectedPhoto === 0) {
+      // Если на первом фото - переходим к последнему
+      setSelectedPhoto(product.photos.length - 1);
+    } else {
+      // Иначе - к предыдущему
+      setSelectedPhoto(selectedPhoto - 1);
+    }
+  };
+
+  const handleNextPhoto = () => {
+    if (selectedPhoto === product.photos.length - 1) {
+      // Если на последнем фото - переходим к первому
+      setSelectedPhoto(0);
+    } else {
+      // Иначе - к следующему
+      setSelectedPhoto(selectedPhoto + 1);
+    }
+  };
+
   return (
     <div className="container">
-      <div className="line">
-        <button className="back-btn" onClick={() => back()}>
-          назад
-        </button>
-        <h1>{product.title}</h1>
-      </div>
+      <button className="back-btn" onClick={() => back()}>
+        назад
+      </button>
+
       <div className="info-wrapper">
-        <div className="photo">
-          <ul>
-            {product.photos.map((i, index: number) => {
-              return (
-                <li key={index}>
-                  <img src={i} alt="" />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
         <div className="main">
-          <div className="rewe">
-            {product.photos.map((photo, index: number) => {
-              return <img key={index} src={photo} alt="" />;
-            })}
+          <div className="photo">
+            <ul>
+              {product.photos.map((photo, index: number) => {
+                return (
+                  <li key={index}>
+                    <img onClick={() => setSelectedPhoto(index)} src={photo} />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          <div className="o">
+            <img
+              src={product.photos[selectedPhoto]}
+              alt={`${product.title} - основное изображение`}
+            />
+            <div className="options">
+              <div className="div-prev">
+                <button onClick={handlePrevPhoto} className="prev">
+                  ←
+                </button>
+              </div>
+              <div className="div-next">
+                <button onClick={handleNextPhoto} className="next">
+                  →
+                </button>
+              </div>
+            </div>
           </div>
         </div>
+        <div className="rehtujy">характеристики</div>
         <div className="full-info">
           <h3>доступные размеры</h3>
           <ul className="current-size">
             {product.availableSizes.map((size, index: number) => {
               return (
-                <li
+                <button
                   onClick={() => setCurrentSize(size)}
                   className={`current-size-item ${
                     currentSize === size ? 'active' : ''
@@ -75,7 +127,7 @@ export default function ProductInfo() {
                   key={index}
                 >
                   {size}
-                </li>
+                </button>
               );
             })}
           </ul>
@@ -86,26 +138,51 @@ export default function ProductInfo() {
             >
               Купить
             </button>
-            <button onClick={() => addCart(product.id)} className="to-cart">
+
+            {/* 🔥 ИСПРАВЛЕНО: используем новую функцию */}
+            <button onClick={handleAddToCart} className="to-cart">
               В корзину
-              <p>{currentSize}</p>
+              {currentSize && <p>Размер: {currentSize}</p>}
             </button>
+
             <div className="price">
               <button>{product.price} ₽</button>
             </div>
           </div>
           <div className="current-color">
             <p>текущая расцветка:</p>
-            <img className="current-color-img" src={product.image} alt="" />
+            {/* <img
+              className="current-color-img"
+              src={product.variants}
+              alt={`${product.title} - расцветка`}
+            /> */}
+            <div className="variants">
+              {product.variants.map((variant, index: number) => {
+                return (
+                  <img
+                    className="current-color-img"
+                    key={index}
+                    src={variant}
+                    alt=""
+                  />
+                );
+              })}
+            </div>
           </div>
 
           <div className="full-desc">
             <ul>
               <div className="open-lock">
-                <p> Описание</p>
-                <p onClick={() => setOpenItem(!openItem)} className="open">
+                <p>Описание</p>
+                <button
+                  onClick={() => setOpenItem(!openItem)}
+                  className="open"
+                  aria-label={
+                    openItem ? 'Скрыть описание' : 'Показать описание'
+                  }
+                >
                   {openItem ? '−' : '+'}
-                </p>
+                </button>
               </div>
               {product.desc.map((item, index: number) => {
                 return (
@@ -113,7 +190,7 @@ export default function ProductInfo() {
                     className={`item ${openItem ? 'active' : 'hide'}`}
                     key={index}
                   >
-                    -{item}
+                    - {item}
                   </li>
                 );
               })}

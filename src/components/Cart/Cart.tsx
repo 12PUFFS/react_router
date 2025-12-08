@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Cart() {
   const [activeCart, setActiveCart] = useState(false);
 
-  const { cart, setModal, modal } = useContext(CartContext);
+  const { cart, setModal, modal, setCurrentSize } = useContext(CartContext);
 
   const openModal = () => {
     setModal(true);

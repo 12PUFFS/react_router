@@ -46,11 +46,7 @@ export default function ProductList() {
       <div className="filters">тут фильтры</div>
       <div className="list">
         <div className="indiv">
-          <input
-            onKeyPress={handleSearch}
-            type="text"
-            placeholder="Что ищем?"
-          />
+          <input onChange={handleSearch} type="text" placeholder="Что ищем?" />
           <p
             onClick={() => setActive('all')}
             className={`f ${active === 'all' ? 'active' : ''}`}

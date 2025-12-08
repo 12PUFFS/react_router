@@ -18,9 +18,9 @@ export default function Modal({ onClose }: ModalType) {
             <div key={item.id} className="modal-item">
               <img src={item.image} alt="" />
               <span>{item.title}</span>
-              {item.selectedSize && (
+              {selectedSize && (
                 <p>
-                  <strong>Размер: {item.selectedSize}</strong>
+                  <strong>Размер: {selectedSize}</strong>
                 </p>
               )}
               <button onClick={() => removeFromCart(item.id)}>удалить</button>
