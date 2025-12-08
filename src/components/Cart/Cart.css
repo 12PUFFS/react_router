@@ -12,7 +12,7 @@ a {
 
 .cart-count {
   position: absolute;
-  top: 0;
+  top: 15px;
   right: 20px;
   color: black;
   background: #ffffff;

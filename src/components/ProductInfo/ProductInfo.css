@@ -88,6 +88,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  flex: 2;
   /* position: sticky; */
   top: 0;
 }
@@ -209,8 +210,8 @@
   padding: 32px;
   position: sticky;
   flex: 1;
-  /* top: 120px; */
-  height: fit-content;
+  top: 90px;
+  /* height: fit-content; */
   border: 1px solid #eee;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
@@ -230,10 +231,11 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 32px;
+  justify-content: space-between;
 }
 
 .current-size-item {
-  padding: 12px 20px;
+  padding: 12px 50px;
   background: #f5f5f5;
   border: 2px solid #eee;
   border-radius: 10px;
@@ -338,9 +340,9 @@
 
 /* Варианты цветов */
 .current-color {
-  margin: 32px 0;
-  padding: 24px 0;
-  border-top: 1px solid #eee;
+  margin-top: 32px;
+  /* padding: 24px 0; */
+  /* border-top: 1px solid #eee; */
   border-bottom: 1px solid #eee;
 }
 
@@ -383,7 +385,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
 
 .open-lock p {
@@ -477,18 +480,6 @@
   margin-bottom: 50px;
   color: #000;
   position: relative;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 2px;
 }
 
 .all-sneakers-grid {

@@ -406,7 +406,7 @@ const products: Product[] = [
       'Промежуточная подошва из EVA',
     ],
     variants: [
-      'https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7695221116.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-t/wc1000/7695221033.jpg',
       'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7435891604.jpg',
     ],
     availableSizes: [38, 39, 40, 41, 42, 43],
