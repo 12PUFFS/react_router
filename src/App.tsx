@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import ProductList from './components/ProductList/ProductList';
@@ -78,14 +78,14 @@ export default function App() {
         setCurrentSize,
       }}
     >
-      <BrowserRouter>
+      <HashRouter>
         <Header />
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/item/:id" element={<ProductInfo />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </CartContext.Provider>
   );
 }

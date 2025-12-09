@@ -1,4 +1,9 @@
-export default function EmptyProductList({ setActive, active }) {
+interface Props {
+  setActive: (active: string) => void;
+  active: string;
+}
+
+export default function EmptyProductList({ setActive, active }: Props) {
   return (
     <div className="wrapper container">
       <div className="filters">тут фильтры</div>

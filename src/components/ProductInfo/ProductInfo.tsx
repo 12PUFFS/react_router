@@ -8,7 +8,9 @@ import { CartContext } from '../../App';
 
 export default function ProductInfo() {
   const { id } = useParams();
-  const product = products.find((item: Product) => item.id === parseInt(id));
+  const product = products.find(
+    (item: Product) => item.id === parseInt(id || '0')
+  );
   const navigate = useNavigate();
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
   const [openItem, setOpenItem] = useState(false);

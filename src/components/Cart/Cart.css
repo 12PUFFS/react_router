@@ -169,8 +169,8 @@ button {
 /* Адаптивность */
 @media (max-width: 768px) {
   .ty {
-    width: 90vw;
-    right: 5vw;
-    max-height: 60vh;
+    width: fit-content;
+    right: 0;
+    height: fit-content;
   }
 }

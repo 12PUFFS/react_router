@@ -9,8 +9,9 @@ export interface Product {
   category: string;
   desc: string[];
   rating: number;
-  variants: [];
   availableSizes: number[];
+  variants: [string, string] | []; // ← исправьте тип
+  selectedSize?: number | null;
 }
 
 const products: Product[] = [

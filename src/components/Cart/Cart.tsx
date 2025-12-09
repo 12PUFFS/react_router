@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Cart() {
   const [activeCart, setActiveCart] = useState(false);
 
-  const { cart, setModal, modal, setCurrentSize } = useContext(CartContext);
+  const { cart, setModal, modal } = useContext(CartContext);
 
   const openModal = () => {
     setModal(true);
@@ -15,7 +15,7 @@ export default function Cart() {
 
   return (
     <div>
-      {modal && <Modal onClose={() => setModal(false)} />}
+      {modal && <Modal />}
 
       <div className="cartinochka">
         <p onClick={() => setActiveCart(!activeCart)} className="cart">
