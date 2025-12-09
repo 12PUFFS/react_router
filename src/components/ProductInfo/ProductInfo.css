@@ -61,6 +61,23 @@
   padding: 10px;
 }
 
+.o {
+  position: relative;
+}
+
+.o-title {
+  position: absolute;
+  top: 0px;
+  width: fit-content;
+  z-index: 1;
+  padding: 20px;
+}
+
+.o-title h2 {
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
 .photo li {
   width: 100px;
   height: 100px;
@@ -69,13 +86,13 @@
   cursor: pointer;
   transition: all 0.3s ease;
   /* border: 2px solid transparent; */
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
-.photo li:hover {
+.photo .active {
   opacity: 1;
-  transform: scale(1.05);
-  border-color: #000;
+  transform: scale();
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .photo li:has(img[src*='']) {

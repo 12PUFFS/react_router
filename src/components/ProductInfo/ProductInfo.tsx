@@ -32,7 +32,7 @@ export default function ProductInfo() {
     }
     // ⚠️ ВНИМАНИЕ: addCart должен быть обновлён в App.tsx
     // чтобы принимать 2 параметра: (id, size)
-    addCart(product.id, currentSize);
+    addCart(product.id);
   };
 
   // // 🔥 Выбираем первую фотографию при загрузке
@@ -91,7 +91,10 @@ export default function ProductInfo() {
                 <ul>
                   {product.photos.slice(0, 5).map((photo, index: number) => {
                     return (
-                      <li key={index}>
+                      <li
+                        className={`${index === selectedPhoto ? 'active' : ''}`}
+                        key={index}
+                      >
                         <img
                           onClick={() => setSelectedPhoto(index)}
                           src={photo}
@@ -102,6 +105,9 @@ export default function ProductInfo() {
                 </ul>
               </div>
               <div className="o">
+                <div className="o-title">
+                  <h2>{product.title}</h2>
+                </div>
                 <img
                   src={product.photos[selectedPhoto]}
                   alt={`${product.title} - основное изображение`}
