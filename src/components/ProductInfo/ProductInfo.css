@@ -89,6 +89,7 @@
   flex-direction: column;
   justify-content: space-between;
   flex: 2;
+  width: 100%;
   /* position: sticky; */
   top: 0;
 }
@@ -211,7 +212,7 @@
   position: sticky;
   flex: 1;
   top: 90px;
-  /* height: fit-content; */
+  height: fit-content;
   border: 1px solid #eee;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
 }
@@ -484,7 +485,7 @@
 
 .all-sneakers-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 30px;
   padding: 20px 0;
 }
@@ -498,6 +499,10 @@
   border: 1px solid rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
 
 .sneaker-card:hover {
@@ -515,13 +520,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  /* padding: 20px; */
 }
 
 .sneaker-image img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.5s ease;
 }
 
@@ -577,6 +582,10 @@
     padding-top: 40px;
   }
 
+  .main-content {
+    flex-direction: column-reverse;
+  }
+
   .section-title {
     font-size: 24px;
     margin-bottom: 30px;
@@ -589,7 +598,6 @@
 
   .sneaker-image {
     height: 200px;
-    padding: 15px;
   }
 
   .sneaker-info {
@@ -639,6 +647,7 @@
     flex-direction: row;
     overflow-x: auto;
     /* padding: 10px 0; */
+    justify-content: center;
   }
 
   .photo li {
