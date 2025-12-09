@@ -1,18 +1,15 @@
 // src/components/Modal/Modal.tsx
 import { useContext } from 'react';
 import { CartContext } from '../../App';
+import './Modal.css';
 
 export default function Modal() {
-  // Удалите selectedSize из деструктуризации и JSX, если он не нужен
   const { cart, removeFromCart } = useContext(CartContext);
 
   return (
-    <div className="modal">
-      <div className="modal-content">
-        <h3>Корзина</h3>
-        {cart.length === 0 ? (
-          <p>Корзина пуста</p>
-        ) : (
+    <div className="modal-wrapper">
+      <div className="modal">
+        <div className="modal-content">
           <div>
             {cart.map((item) => (
               <div key={item.id} className="cart-item">
@@ -20,8 +17,7 @@ export default function Modal() {
                 <div>
                   <h4>{item.title}</h4>
                   <p>Цена: {item.price} руб.</p>
-                  {/* Удалите блок с selectedSize, если он не используется в данных */}
-                  {/* или добавьте проверку на существование */}
+
                   {item.selectedSize && (
                     <p>
                       <strong>Размер: {item.selectedSize}</strong>
@@ -34,7 +30,7 @@ export default function Modal() {
               </div>
             ))}
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

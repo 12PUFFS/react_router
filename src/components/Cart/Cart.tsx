@@ -27,7 +27,10 @@ export default function Cart() {
         <div className="ol">
           <h2>Перейти в корзину</h2>
           <div className="cart-btns">
-            <button onClick={openModal}>удалить все</button>
+            {cart.length != 0 && cart.length > 1 && (
+              <button onClick={openModal}>удалить все</button>
+            )}
+
             <button
               onClick={() => setActiveCart(!activeCart)}
               className="close-btn"

@@ -63,8 +63,9 @@ a {
 .ty.active {
   display: flex;
   flex-direction: column;
-  /* min-height: 500px; */
-  max-height: 70vh; /* Добавляем ограничение высоты */
+  /* position: sticky; */
+  /* top: -50px; */
+  z-index: 1;
 }
 
 .ty.active ul {

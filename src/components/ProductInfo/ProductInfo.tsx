@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import products from '../../data';
 import type { Product } from '../../data';
 
@@ -13,6 +13,7 @@ export default function ProductInfo() {
   );
   const navigate = useNavigate();
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
+  const [selectedModel, setSelecredModel] = useState<number>(0);
   const [openItem, setOpenItem] = useState(false);
   const { addCart, currentSize, setCurrentSize } = useContext(CartContext);
 
@@ -77,11 +78,15 @@ export default function ProductInfo() {
     }
   };
 
+  const sameModel = products.filter((model) => {
+    return model.models === product.models;
+  });
+
   return (
     <div className="container">
-      {/* <button className="back-btn" onClick={() => back()}>
+      <button className="back-btn" onClick={() => back()}>
         назад
-      </button> */}
+      </button>
 
       <div className="content">
         <div className="info-wrapper">
@@ -182,14 +187,18 @@ export default function ProductInfo() {
               alt={`${product.title} - расцветка`}
             /> */}
               <div className="variants">
-                {product.variants.map((variant, index: number) => {
+                {sameModel.map((variant, index: number) => {
                   return (
-                    <img
-                      className="current-color-img"
-                      key={index}
-                      src={variant}
-                      alt=""
-                    />
+                    <Link key={index} to={`/item/${variant.id}`}>
+                      <img
+                        className={`current-color-img ${
+                          selectedModel === index ? 'active' : ''
+                        }`}
+                        src={variant.image}
+                        alt=""
+                        onClick={() => setSelecredModel(index)}
+                      />
+                    </Link>
                   );
                 })}
               </div>
@@ -219,20 +228,22 @@ export default function ProductInfo() {
             <h2 className="section-title">Все кроссовки</h2>
             <div className="all-sneakers-grid">
               {products.map((item) => (
-                <div
-                  key={item.id}
-                  className="sneaker-card"
-                  onClick={() => navigate(`/product/${item.id}`)}
-                >
-                  <div className="sneaker-image">
-                    <img src={item.photos[0]} alt={item.title} />
+                <Link to={`/item/${item.id}`}>
+                  <div
+                    key={item.id}
+                    className="sneaker-card"
+                    onClick={() => navigate(`/product/${item.id}`)}
+                  >
+                    <div className="sneaker-image">
+                      <img src={item.photos[0]} alt={item.title} />
+                    </div>
+                    <div className="sneaker-info">
+                      <h3 className="sneaker-title">{item.title}</h3>
+                      <p className="sneaker-description">{item.description}</p>
+                      <div className="sneaker-price">{item.price} ₽</div>
+                    </div>
                   </div>
-                  <div className="sneaker-info">
-                    <h3 className="sneaker-title">{item.title}</h3>
-                    <p className="sneaker-description">{item.description}</p>
-                    <div className="sneaker-price">{item.price} ₽</div>
-                  </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

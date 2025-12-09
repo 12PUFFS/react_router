@@ -16,7 +16,9 @@ export default function ProductCard({ product }: TypeOfProduct) {
     <div className="card">
       <Link to={`/item/${product.id} `}>
         <img src={product.image} alt="" />
-        <h4 className="rating">{product.rating}</h4>
+        <h4 data-rating={product.rating} className="rating">
+          {product.rating}
+        </h4>
       </Link>
       <div className="card-desc">
         <h2>{product.price} ₽</h2>

@@ -249,7 +249,7 @@
   gap: 10px;
   flex-wrap: wrap;
   margin-bottom: 32px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .current-size-item {
@@ -389,7 +389,7 @@
   transition: all 0.2s ease;
 }
 
-.current-color-img:hover {
+.current-color-img.active {
   border-color: #000;
   transform: scale(1.05);
 }
@@ -700,7 +700,7 @@
   }
 
   .back-btn {
-    position: static;
+    position: sticky;
     margin-bottom: 20px;
   }
 
