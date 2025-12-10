@@ -1,0 +1,64 @@
+.wrapper {
+  /* border: 1px solid; */
+  display: flex;
+  /* flex-direction: column; */
+  gap: 50px;
+}
+
+.indiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.listochek {
+  display: grid;
+  gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.list {
+  width: 100%;
+}
+
+input {
+  width: 600px;
+  margin-right: auto;
+}
+
+.banner {
+  background: #f5f5f5;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  position: relative;
+  z-index: 1;
+}
+
+.banner img {
+  height: inherit;
+  width: 70%;
+  object-fit: contain;
+}
+
+.options.active {
+  position: absolute;
+  z-index: 1000;
+}
+
+.prev,
+.next.active {
+  display: flex;
+}
+
+.banner img:hover .options,
+.banner img:hover .div-prev,
+.banner img:hover .div-next,
+.banner img:hover .prev:hover,
+.banner img:hover .next:hover {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}

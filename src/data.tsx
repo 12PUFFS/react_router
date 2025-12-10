@@ -13,6 +13,7 @@ export interface Product {
   availableSizes: number[];
   variants: [string, string] | [];
   selectedSize?: number | null;
+  status: string;
 }
 
 const products: Product[] = [
@@ -49,6 +50,7 @@ const products: Product[] = [
     ],
     availableSizes: [38, 39, 40, 41, 42, 43, 45],
     models: 'dunk',
+    status: 'new',
   },
 
   {
@@ -83,6 +85,7 @@ const products: Product[] = [
     ],
     availableSizes: [38, 39, 40, 41],
     models: 'dunk',
+    status: 'new',
   },
 ];
 

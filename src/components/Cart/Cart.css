@@ -65,7 +65,7 @@ a {
   flex-direction: column;
   /* position: sticky; */
   /* top: -50px; */
-  z-index: 1;
+  z-index: 20000000000000000000;
 }
 
 .ty.active ul {
@@ -76,9 +76,9 @@ a {
   flex: 1;
   margin: 50px 0;
   padding: 0;
-  overflow-y: auto; /* Включаем скролл */
+  /* overflow-y: auto; 
   overflow-x: hidden;
-  padding-right: 5px; /* Место для скроллбара */
+  padding-right: 5px;  */
 }
 
 .ll {

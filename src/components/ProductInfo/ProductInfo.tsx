@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import products from '../../data';
 import type { Product } from '../../data';
 
@@ -11,7 +11,7 @@ export default function ProductInfo() {
   const product = products.find(
     (item: Product) => item.id === parseInt(id || '0')
   );
-  const navigate = useNavigate();
+
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
   const [selectedModel, setSelecredModel] = useState<number>(0);
   const [openItem, setOpenItem] = useState(false);
@@ -44,12 +44,10 @@ export default function ProductInfo() {
   if (!product.photos) {
     return (
       <div className="container">
-        <div className="line">
-          <Link to={'/'}>
-            <button className="back-btn">назад</button>
-          </Link>
-          <h1 className="_error">404</h1>
-        </div>
+        <Link to={'/'}>
+          <button className="back-btn">назад</button>
+        </Link>
+        <h1 className="_error">404</h1>
       </div>
     );
   }
@@ -122,6 +120,7 @@ export default function ProductInfo() {
                     <button onClick={handlePrevPhoto} className="prev">
                       ←
                     </button>
+                    s
                   </div>
                   <div className="div-next">
                     <button onClick={handleNextPhoto} className="next">

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import ProductCard from '../ProductCard/ProductCard';
 
@@ -8,12 +8,15 @@ import type { Product } from '../../data';
 
 import Loading from '../Loading/Loading';
 import EmptyProductList from './EmptyProductList';
+import { CartContext } from '../../App';
 
 export default function ProductList() {
   const [items, setItems] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState('all');
   const [searchValue, setSearchValue] = useState('');
+
+  const { handleNextPhoto, handlePrevPhoto } = useContext(CartContext);
 
   useEffect(() => {
     setTimeout(() => {
@@ -41,44 +44,71 @@ export default function ProductList() {
     return <EmptyProductList setActive={setActive} active={active} />;
   }
 
+  const newProductBanner = () => {
+    return products.find((i) => {
+      return i.status === 'new';
+    });
+  };
+
   return (
-    <div className="wrapper container">
-      <div className="filters">тут фильтры</div>
-      <div className="list">
-        <div className="indiv">
-          <input onChange={handleSearch} type="text" placeholder="Что ищем?" />
-          <p
-            onClick={() => setActive('all')}
-            className={`f ${active === 'all' ? 'active' : ''}`}
-          >
-            все
-          </p>
-          <p
-            onClick={() => setActive('hits')}
-            className={`f ${active === 'hits' ? 'active' : ''}`}
-          >
-            хиты
-          </p>
-          <p
-            onClick={() => setActive('new')}
-            className={`f ${active === 'new' ? 'active' : ''}`}
-          >
-            новое
-          </p>
-          <div className="price-filter">
-            <div>фильтры по цене</div>
+    <div className="container">
+      <div className="banner">
+        <div className="options">
+          <div className="div-prev">
+            <button onClick={handlePrevPhoto} className="prev">
+              ←
+            </button>
+          </div>
+          <div className="div-next">
+            <button onClick={handleNextPhoto} className="next">
+              →
+            </button>
           </div>
         </div>
+        {newProductBanner() && <img src={newProductBanner().image} alt="" />}
+      </div>
+      <div className="wrapper container">
+        <div className="filters">тут фильтры</div>
+        <div className="list">
+          <div className="indiv">
+            <input
+              onChange={handleSearch}
+              type="text"
+              placeholder="Что ищем?"
+            />
+            <p
+              onClick={() => setActive('all')}
+              className={`f ${active === 'all' ? 'active' : ''}`}
+            >
+              все
+            </p>
+            <p
+              onClick={() => setActive('hits')}
+              className={`f ${active === 'hits' ? 'active' : ''}`}
+            >
+              хиты
+            </p>
+            <p
+              onClick={() => setActive('new')}
+              className={`f ${active === 'new' ? 'active' : ''}`}
+            >
+              новое
+            </p>
+            <div className="price-filter">
+              <div>фильтры по цене</div>
+            </div>
+          </div>
 
-        <ul>
-          {filtredItems.map((item, index: number) => {
-            return (
-              <li key={item.id}>
-                <ProductCard product={item} index={index} />
-              </li>
-            );
-          })}
-        </ul>
+          <ul className="all-sneakers-grid">
+            {filtredItems.map((item, index: number) => {
+              return (
+                <li key={item.id}>
+                  <ProductCard product={item} index={index} />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
