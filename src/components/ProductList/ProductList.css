@@ -23,7 +23,7 @@
 }
 
 input {
-  width: 600px;
+  max-width: 600px;
   margin-right: auto;
 }
 
@@ -39,7 +39,7 @@ input {
 
 .banner img {
   height: inherit;
-  width: 70%;
+  width: 40%;
   object-fit: contain;
 }
 

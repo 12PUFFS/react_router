@@ -120,7 +120,6 @@ export default function ProductInfo() {
                     <button onClick={handlePrevPhoto} className="prev">
                       ←
                     </button>
-                    s
                   </div>
                   <div className="div-next">
                     <button onClick={handleNextPhoto} className="next">

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import ProductCard from '../ProductCard/ProductCard';
 
@@ -8,15 +8,12 @@ import type { Product } from '../../data';
 
 import Loading from '../Loading/Loading';
 import EmptyProductList from './EmptyProductList';
-import { CartContext } from '../../App';
 
 export default function ProductList() {
   const [items, setItems] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState('all');
   const [searchValue, setSearchValue] = useState('');
-
-  const { handleNextPhoto, handlePrevPhoto } = useContext(CartContext);
 
   useEffect(() => {
     setTimeout(() => {
@@ -44,28 +41,22 @@ export default function ProductList() {
     return <EmptyProductList setActive={setActive} active={active} />;
   }
 
-  const newProductBanner = () => {
-    return products.find((i) => {
-      return i.status === 'new';
-    });
-  };
+  const newProductBanner = products.find((i) => {
+    return i.status === 'new';
+  });
 
   return (
     <div className="container">
       <div className="banner">
         <div className="options">
           <div className="div-prev">
-            <button onClick={handlePrevPhoto} className="prev">
-              ←
-            </button>
+            <button>←</button>
           </div>
           <div className="div-next">
-            <button onClick={handleNextPhoto} className="next">
-              →
-            </button>
+            <button>→</button>
           </div>
         </div>
-        {newProductBanner() && <img src={newProductBanner().image} alt="" />}
+        <img src={newProductBanner.image} alt="" />
       </div>
       <div className="wrapper container">
         <div className="filters">тут фильтры</div>

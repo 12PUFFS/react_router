@@ -3,6 +3,7 @@ import './Cart.css';
 import { CartContext } from '../../App';
 import Modal from '../Modal/Modal';
 import { Link } from 'react-router-dom';
+import cartIcon from '../../assets/Bag (1).svg';
 
 export default function Cart() {
   const [activeCart, setActiveCart] = useState(false);
@@ -19,7 +20,7 @@ export default function Cart() {
 
       <div className="cartinochka">
         <p onClick={() => setActiveCart(!activeCart)} className="cart">
-          моя корзина
+          <img className="heart" src={cartIcon} alt="" />
         </p>
       </div>
       <span className="cart-count">{cart.length}</span>
