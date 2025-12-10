@@ -2,6 +2,7 @@
   /* background: black; */
   color: white;
   /* padding: 15px; */
+  /* position: relative; */
   cursor: pointer;
 }
 
@@ -10,12 +11,16 @@ a {
   gap: 20px;
 }
 
+.cart {
+  position: relative;
+}
+
 .cart-count {
   position: absolute;
   top: 15px;
-  right: 20px;
-  color: black;
-  background: #ffffff;
+  right: 30px;
+  color: #ffffff;
+  background: rgb(0, 0, 0);
   border-radius: 50%;
   width: 20px;
   display: flex;
@@ -65,7 +70,7 @@ a {
   flex-direction: column;
   /* position: sticky; */
   /* top: -50px; */
-  z-index: 20000000000000000000;
+  z-index: 20;
 }
 
 .ty.active ul {

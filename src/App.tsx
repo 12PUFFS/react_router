@@ -28,6 +28,7 @@ export const CartContext = createContext<SetCart>({
   modal: false,
   currentSize: null,
   setCurrentSize: () => {},
+  newProductBanner: null,
 });
 
 export default function App() {
@@ -51,6 +52,10 @@ export default function App() {
       return prev;
     });
   };
+
+  const newProductBanner = products.find((i) => {
+    return i.status === 'new';
+  });
 
   const removeFromCart = (id: number) => {
     setCart((prev) => prev.filter((p) => p.id !== id));
@@ -76,6 +81,7 @@ export default function App() {
         modal,
         currentSize,
         setCurrentSize,
+        newProductBanner,
       }}
     >
       <HashRouter>

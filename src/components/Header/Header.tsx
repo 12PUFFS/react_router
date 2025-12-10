@@ -4,16 +4,18 @@ import heartIcon from '../../assets/heart.png';
 
 export default function Header() {
   return (
-    <header className="header">
-      {/* <h1 className="logo">SneakerLand</h1> */}
-      <div className="menu">
-        <ul>
-          <li>
-            <img className="heart" src={heartIcon} alt="" />
-          </li>
-        </ul>
-      </div>
-      <Cart />
-    </header>
+    <>
+      <div className="pre-header">я пре-хедер</div>
+      <header className="header">
+        <div className="menu">
+          <ul>
+            <li>
+              <img className="heart" src={heartIcon} alt="" />
+            </li>
+          </ul>
+        </div>
+        <Cart />
+      </header>
+    </>
   );
 }

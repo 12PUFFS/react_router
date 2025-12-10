@@ -81,168 +81,177 @@ export default function ProductInfo() {
   });
 
   return (
-    <div className="container">
-      <Link to={'/'}>
-        <button className="back-btn">назад</button>
-      </Link>
+    <>
+      <div className="container">
+        <Link to={'/'}>
+          <button className="back-btn">назад</button>
+        </Link>
 
-      <div className="content">
-        <div className="info-wrapper">
-          <div className="main-content">
-            <div className="main">
-              <div className="photo">
+        <div className="content">
+          <div className="info-wrapper">
+            <div className="main-content">
+              <div className="main">
+                <div className="photo">
+                  <ul>
+                    {product.photos.slice(0, 5).map((photo, index: number) => {
+                      return (
+                        <li
+                          className={`${
+                            index === selectedPhoto ? 'active' : ''
+                          }`}
+                          key={index}
+                        >
+                          <img
+                            onClick={() => setSelectedPhoto(index)}
+                            src={photo}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+                <div className="o">
+                  <div className="o-title">
+                    <h2>{product.title}</h2>
+                  </div>
+                  <img
+                    src={product.photos[selectedPhoto]}
+                    alt={`${product.title} - основное изображение`}
+                  />
+                  <div className="options">
+                    <div className="div-prev">
+                      <button onClick={handlePrevPhoto} className="prev">
+                        ←
+                      </button>
+                    </div>
+                    <div className="div-next">
+                      <button onClick={handleNextPhoto} className="next">
+                        →
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="full-desc">
                 <ul>
-                  {product.photos.slice(0, 5).map((photo, index: number) => {
+                  <div className="open-lock">
+                    <p>Описание</p>
+                    <button
+                      onClick={() => setOpenItem(!openItem)}
+                      className="open"
+                      aria-label={
+                        openItem ? 'Скрыть описание' : 'Показать описание'
+                      }
+                    >
+                      {openItem ? '−' : '+'}
+                    </button>
+                  </div>
+
+                  {product.desc.map((item, index: number) => {
                     return (
                       <li
-                        className={`${index === selectedPhoto ? 'active' : ''}`}
+                        className={`item ${openItem ? 'active' : 'hide'}`}
                         key={index}
                       >
-                        <img
-                          onClick={() => setSelectedPhoto(index)}
-                          src={photo}
-                        />
+                        - {item}
                       </li>
                     );
                   })}
                 </ul>
               </div>
-              <div className="o">
-                <div className="o-title">
-                  <h2>{product.title}</h2>
-                </div>
-                <img
-                  src={product.photos[selectedPhoto]}
-                  alt={`${product.title} - основное изображение`}
-                />
-                <div className="options">
-                  <div className="div-prev">
-                    <button onClick={handlePrevPhoto} className="prev">
-                      ←
-                    </button>
-                  </div>
-                  <div className="div-next">
-                    <button onClick={handleNextPhoto} className="next">
-                      →
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
 
-            <div className="full-desc">
-              <ul>
-                <div className="open-lock">
-                  <p>Описание</p>
-                  <button
-                    onClick={() => setOpenItem(!openItem)}
-                    className="open"
-                    aria-label={
-                      openItem ? 'Скрыть описание' : 'Показать описание'
-                    }
-                  >
-                    {openItem ? '−' : '+'}
-                  </button>
-                </div>
-
-                {product.desc.map((item, index: number) => {
+            <div className="full-info">
+              <h3>доступные размеры</h3>
+              <ul className="current-size">
+                {product.availableSizes.map((size, index: number) => {
                   return (
-                    <li
-                      className={`item ${openItem ? 'active' : 'hide'}`}
+                    <button
+                      onClick={() => setCurrentSize(size)}
+                      className={`current-size-item ${
+                        currentSize === size ? 'active' : ''
+                      }`}
                       key={index}
                     >
-                      - {item}
-                    </li>
+                      {size}
+                    </button>
                   );
                 })}
               </ul>
-            </div>
-          </div>
 
-          <div className="full-info">
-            <h3>доступные размеры</h3>
-            <ul className="current-size">
-              {product.availableSizes.map((size, index: number) => {
-                return (
-                  <button
-                    onClick={() => setCurrentSize(size)}
-                    className={`current-size-item ${
-                      currentSize === size ? 'active' : ''
-                    }`}
-                    key={index}
-                  >
-                    {size}
-                  </button>
-                );
-              })}
-            </ul>
-
-            <div className="current-color">
-              <p>текущая расцветка:</p>
-              {/* <img
+              <div className="current-color">
+                <p>текущая расцветка:</p>
+                {/* <img
               className="current-color-img"
               src={product.variants}
               alt={`${product.title} - расцветка`}
             /> */}
-              <div className="variants">
-                {sameModel.map((variant, index: number) => {
-                  return (
-                    <Link key={index} to={`/item/${variant.id}`}>
-                      <img
-                        className={`current-color-img ${
-                          selectedModel === index ? 'active' : ''
-                        }`}
-                        src={variant.image}
-                        alt=""
-                        onClick={() => setSelecredModel(index)}
-                      />
-                    </Link>
-                  );
-                })}
+                <div className="variants">
+                  {sameModel.map((variant, index: number) => {
+                    const getVariant = product.id === variant.id;
+
+                    return (
+                      <Link key={index} to={`/item/${variant.id}`}>
+                        <img
+                          className={`current-color-img ${
+                            getVariant ? 'active' : ''
+                          }`}
+                          src={variant.image}
+                          alt=""
+                          onClick={() => setSelecredModel(index)}
+                        />
+                      </Link>
+                    );
+                  })}
+                </div>
               </div>
-            </div>
-            <div className="main-btn">
-              <button
-                onClick={() => alert(`Ура, ты купил ${product.title}`)}
-                className="to-buy"
-              >
-                Купить
-              </button>
+              <div className="main-btn">
+                <button
+                  onClick={() => alert(`Ура, ты купил ${product.title}`)}
+                  className="to-buy"
+                >
+                  Купить
+                </button>
 
-              <button onClick={handleAddToCart} className="to-cart">
-                В корзину
-                {currentSize && <p>Размер: {currentSize}</p>}
-              </button>
+                <button onClick={handleAddToCart} className="to-cart">
+                  В корзину
+                  {currentSize && <p>Размер: {currentSize}</p>}
+                </button>
 
-              <div className="price">
-                <button>{product.price} ₽</button>
+                <div className="price">
+                  <button>{product.price} ₽</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="inter">
-          <div className="w">
-            <h2 className="section-title">Все кроссовки</h2>
-            <div className="all-sneakers-grid">
-              {products.map((item) => (
-                <Link to={`/item/${item.id}`}>
-                  <div key={item.id} className="sneaker-card">
-                    <div className="sneaker-image">
-                      <img src={item.photos[0]} alt={item.title} />
+          <div className="inter">
+            <div className="w">
+              <h2 className="section-title">Все кроссовки</h2>
+              <div className="all-sneakers-grid">
+                {sameModel.map((item) => (
+                  <Link to={`/item/${item.id}`}>
+                    <div key={item.id} className="sneaker-card">
+                      <div className="sneaker-image">
+                        <img src={item.photos[0]} alt={item.title} />
+                      </div>
+                      <div className="sneaker-info">
+                        <h3 className="sneaker-title">{item.title}</h3>
+                        <p className="sneaker-description">
+                          {item.description}
+                        </p>
+                        <div className="sneaker-price">{item.price} ₽</div>
+                      </div>
                     </div>
-                    <div className="sneaker-info">
-                      <h3 className="sneaker-title">{item.title}</h3>
-                      <p className="sneaker-description">{item.description}</p>
-                      <div className="sneaker-price">{item.price} ₽</div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+      <footer className="footer">esfejrhgth</footer>
+    </>
   );
 }
