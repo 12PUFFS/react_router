@@ -661,10 +661,11 @@
   }
 
   .photo ul {
+    overflow: scroll;
+    padding: 10px;
+    display: flex;
     flex-direction: row;
-    overflow-x: auto;
-    /* padding: 10px 0; */
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .photo li {

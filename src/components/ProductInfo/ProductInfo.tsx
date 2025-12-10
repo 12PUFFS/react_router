@@ -21,9 +21,9 @@ export default function ProductInfo() {
     return <div>Товар не найден</div>;
   }
 
-  const back = () => {
-    navigate(-1);
-  };
+  // const back = () => {
+  //   navigate(-1);
+  // };
 
   // 🔥 НОВАЯ ФУНКЦИЯ для добавления в корзину
   const handleAddToCart = () => {
@@ -45,9 +45,9 @@ export default function ProductInfo() {
     return (
       <div className="container">
         <div className="line">
-          <button className="back-btn" onClick={() => back()}>
-            назад
-          </button>
+          <Link to={'/'}>
+            <button className="back-btn">назад</button>
+          </Link>
           <h1 className="_error">404</h1>
         </div>
       </div>
@@ -84,9 +84,9 @@ export default function ProductInfo() {
 
   return (
     <div className="container">
-      <button className="back-btn" onClick={() => back()}>
-        назад
-      </button>
+      <Link to={'/'}>
+        <button className="back-btn">назад</button>
+      </Link>
 
       <div className="content">
         <div className="info-wrapper">
@@ -229,11 +229,7 @@ export default function ProductInfo() {
             <div className="all-sneakers-grid">
               {products.map((item) => (
                 <Link to={`/item/${item.id}`}>
-                  <div
-                    key={item.id}
-                    className="sneaker-card"
-                    onClick={() => navigate(`/product/${item.id}`)}
-                  >
+                  <div key={item.id} className="sneaker-card">
                     <div className="sneaker-image">
                       <img src={item.photos[0]} alt={item.title} />
                     </div>

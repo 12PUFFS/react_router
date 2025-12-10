@@ -80,6 +80,7 @@ export default function App() {
     >
       <HashRouter>
         <Header />
+
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="/item/:id" element={<ProductInfo />} />
