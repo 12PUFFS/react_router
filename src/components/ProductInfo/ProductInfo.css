@@ -11,8 +11,8 @@
 }
 
 .back-btn {
-  background: transparent;
-  border: 2px solid #000;
+  background: black;
+  /* border: 2px solid #000; */
   border-radius: 12px;
   padding: 12px 24px;
   font-size: 15px;
@@ -25,9 +25,9 @@
   width: fit-content;
   /* z-index: 2; */
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.9);
-  color: #000;
-  margin-bottom: 20px;
+  /* background: rgba(255, 255, 255, 0.9); */
+  color: #ffffff;
+  margin: 10px 0;
 }
 
 a {

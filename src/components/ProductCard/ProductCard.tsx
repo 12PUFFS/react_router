@@ -14,18 +14,17 @@ export default function ProductCard({ product }: TypeOfProduct) {
 
   return (
     <div className="sneaker-card">
-      <Link to={`/item/${product.id} `}>
-        <img className="sneaker-image" src={product.image} alt="" />
-        <h4 data-rating={product.rating} className="rating">
-          {product.rating}
-        </h4>
-      </Link>
+      <img className="sneaker-image" src={product.image} alt="" />
+      <h4 data-rating={product.rating} className="rating">
+        {product.rating}
+      </h4>
+
       <div className="sneaker-info">
         <h2 className="sneaker-price">{product.price} ₽</h2>
         <h3 className="sneaker-title">{product.title}</h3>
-        <button onClick={() => addCart(product.id)} className="to-cart">
-          В корзину
-        </button>
+        <Link to={`/item/${product.id} `}>
+          <button>Подробнее</button>
+        </Link>
       </div>
     </div>
   );

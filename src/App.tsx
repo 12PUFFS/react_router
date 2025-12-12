@@ -17,6 +17,7 @@ interface SetCart {
   modal: boolean;
   currentSize: number | null; // Размер - это число или null
   setCurrentSize: React.Dispatch<React.SetStateAction<number | null>>;
+  newProductBanner: Product | undefined;
 }
 export const CartContext = createContext<SetCart>({
   cart: [],
@@ -28,7 +29,7 @@ export const CartContext = createContext<SetCart>({
   modal: false,
   currentSize: null,
   setCurrentSize: () => {},
-  newProductBanner: null,
+  newProductBanner: undefined,
 });
 
 export default function App() {

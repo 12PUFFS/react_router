@@ -13,7 +13,7 @@ export default function ProductInfo() {
   );
 
   const [selectedPhoto, setSelectedPhoto] = useState<number>(0);
-  const [selectedModel, setSelecredModel] = useState<number>(0);
+  // const [selectedModel, setSelectedModel] = useState<number>(0);
   const [openItem, setOpenItem] = useState(false);
   const { addCart, currentSize, setCurrentSize } = useContext(CartContext);
 
@@ -199,7 +199,7 @@ export default function ProductInfo() {
                           }`}
                           src={variant.image}
                           alt=""
-                          onClick={() => setSelecredModel(index)}
+                          onClick={() => {}}
                         />
                       </Link>
                     );

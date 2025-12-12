@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../App';
 import { useContext } from 'react';
 
-interface SetActiveType {
-  setActive: (category: string) => void;
+type LoadingProps = {
   active: string;
-}
+  setActive: React.Dispatch<React.SetStateAction<string>>;
+};
 
-export default function Loading({ setActive, active }: SetActiveType) {
+export default function Loading({ setActive, active }: LoadingProps) {
   const { newProductBanner } = useContext(CartContext);
   return (
     <>
@@ -24,8 +24,11 @@ export default function Loading({ setActive, active }: SetActiveType) {
               <button>→</button>
             </div>
           </div>
-          <Link to={`/item/${newProductBanner.id}`}>
-            <img src={newProductBanner.image} alt="" />
+          <Link to={`/item/${newProductBanner?.id || '1'}`}>
+            <img
+              src={newProductBanner?.image || ''}
+              alt={newProductBanner?.title || ''}
+            />
           </Link>
         </div>
         <div className="wrapper">

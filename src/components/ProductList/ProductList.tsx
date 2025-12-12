@@ -64,8 +64,8 @@ export default function ProductList() {
               <button>→</button>
             </div>
           </div>
-          <Link to={`/item/${newProductBanner.id}`}>
-            <img src={newProductBanner.image} alt="" />
+          <Link to={`/item/${newProductBanner?.id || '1'}`}>
+            <img src={newProductBanner?.image || ''} alt="" />
           </Link>
         </div>
         <div className="wrapper">

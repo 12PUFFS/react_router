@@ -65,12 +65,12 @@ const products: Product[] = [
     rating: 4.4,
     photos: [
       'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7435891604.jpg',
-      'https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7695221116.jpg',
-      'https://ir.ozone.ru/s3/multimedia-1-1/wc1000/7695221041.jpg',
-      'https://ir.ozone.ru/s3/multimedia-1-o/wc1000/7695221028.jpg',
-      'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7695221009.jpg',
-      'https://ir.ozone.ru/s3/multimedia-1-c/wc1000/7695221016.jpg',
-      'https://ir.ozone.ru/s3/multimedia-1-f/wc1000/7695221019.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-5/wc1000/7435891661.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-d/wc1000/7435891669.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-y/wc1000/7435891690.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-e/wc1000/7435891634.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-v/wc1000/7435891651.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-l/wc1000/7435891605.jpg',
     ],
     desc: [
       'Материал - Кожа',
