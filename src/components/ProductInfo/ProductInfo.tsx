@@ -158,6 +158,53 @@ export default function ProductInfo() {
                       </li>
                     );
                   })}
+                  <div className="open-lock">
+                    <p>Описание</p>
+                    <button
+                      onClick={() => setOpenItem(!openItem)}
+                      className="open"
+                      aria-label={
+                        openItem ? 'Скрыть описание' : 'Показать описание'
+                      }
+                    >
+                      {openItem ? '−' : '+'}
+                    </button>
+                  </div>
+
+                  {product.desc.map((item, index: number) => {
+                    return (
+                      <li
+                        className={`item ${openItem ? 'active' : 'hide'}`}
+                        key={index}
+                      >
+                        - {item}
+                      </li>
+                    );
+                  })}
+
+                  <div className="open-lock">
+                    <p>Описание</p>
+                    <button
+                      onClick={() => setOpenItem(!openItem)}
+                      className="open"
+                      aria-label={
+                        openItem ? 'Скрыть описание' : 'Показать описание'
+                      }
+                    >
+                      {openItem ? '−' : '+'}
+                    </button>
+                  </div>
+
+                  {product.desc.map((item, index: number) => {
+                    return (
+                      <li
+                        className={`item ${openItem ? 'active' : 'hide'}`}
+                        key={index}
+                      >
+                        - {item}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>

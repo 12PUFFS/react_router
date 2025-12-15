@@ -10,7 +10,7 @@ export default function Header() {
         <div className="menu">
           <ul>
             <li>
-              <img className="heart" src={heartIcon} alt="" />
+              <img className="hearti" src={heartIcon} alt="" />
             </li>
           </ul>
         </div>

@@ -101,8 +101,8 @@ a {
 
 .photo .active {
   opacity: 1;
-  transform: scale();
-  border: 1px solid rgb(0, 0, 0);
+  transform: scale(1.2);
+  /* border: 1px solid rgb(0, 0, 0); */
 }
 
 .photo li:has(img[src*='']) {
@@ -515,7 +515,7 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
   gap: 30px;
-  padding: 20px 0;
+  padding-top: 50px;
 }
 
 .sneaker-card {
@@ -542,12 +542,12 @@ a {
 
 .sneaker-image {
   width: 100%;
-  height: 250px;
-  overflow: hidden;
+  height: 330px;
+  /* overflow: hidden;
   background: #f9f9f7;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   /* padding: 20px; */
 }
 
@@ -607,7 +607,7 @@ a {
 /* Адаптивность */
 @media (max-width: 1200px) {
   .all-sneakers-grid {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
     gap: 25px;
   }
 }

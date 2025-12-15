@@ -1,7 +1,7 @@
 import './ProductCard.css';
 import type { Product } from '../../data';
-import { useContext } from 'react';
-import { CartContext } from '../../App';
+// import { useContext } from 'react';
+// import { CartContext } from '../../App';
 import { Link } from 'react-router-dom';
 
 interface TypeOfProduct {
@@ -10,7 +10,7 @@ interface TypeOfProduct {
 }
 
 export default function ProductCard({ product }: TypeOfProduct) {
-  const { addCart } = useContext(CartContext);
+  // const { addCart } = useContext(CartContext);
 
   return (
     <div className="sneaker-card">
