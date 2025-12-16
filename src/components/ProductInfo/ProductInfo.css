@@ -21,6 +21,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   /* position: sticky; */
   top: 100px;
+
   left: 20px;
   width: fit-content;
   /* z-index: 2; */
@@ -58,7 +59,7 @@
 
   /* Фиксированная позиция в левом верхнем углу */
   position: fixed;
-  top: 150px;
+  top: 90px;
   left: 0;
   z-index: 1000;
 
@@ -109,12 +110,9 @@
 /* Для мобильных устройств */
 @media (max-width: 768px) {
   .back-btn {
-    top: 15px;
-    padding: 10px 20px;
-    font-size: 14px;
-    border-radius: 0 10px 10px 0;
-    /* position: absolute; */
-    display: none;
+    position: fixed;
+    margin-bottom: 20px;
+    top: 50%;
   }
 
   .container {
@@ -124,9 +122,10 @@
 
 @media (max-width: 480px) {
   .back-btn {
-    top: 10px;
+    top: 50%;
     padding: 8px 16px;
     font-size: 13px;
+    position: fixed;
   }
 
   .container {
@@ -888,8 +887,9 @@ a {
   }
 
   .back-btn {
-    position: sticky;
+    /* position: sticky; */
     margin-bottom: 20px;
+    top: 30%;
   }
 
   .full-info {
