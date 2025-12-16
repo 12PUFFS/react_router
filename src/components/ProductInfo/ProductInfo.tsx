@@ -278,8 +278,8 @@ export default function ProductInfo() {
               <h2 className="section-title">Все кроссовки</h2>
               <div className="all-sneakers-grid">
                 {sameModel.map((item) => (
-                  <Link to={`/item/${item.id}`}>
-                    <div key={item.id} className="sneaker-card">
+                  <Link key={item.id} to={`/item/${item.id}`}>
+                    <div className="sneaker-card">
                       <div className="sneaker-image">
                         <img src={item.photos[0]} alt={item.title} />
                       </div>

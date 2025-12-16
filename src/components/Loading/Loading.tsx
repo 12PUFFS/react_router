@@ -57,6 +57,13 @@ export default function Loading({ setActive, active }: LoadingProps) {
             </div>
             <div className="loading">идёт загрука...</div>
           </div>
+          <div className="price-filter">
+            <select name="price" id="price-select">
+              <option value="">Фильтры по цене</option>
+              <option value="hight">Сначало дороже</option>
+              <option value="low">Сначало дешевле</option>
+            </select>
+          </div>
         </div>
       </div>
       <footer className="footer">wwarwetrgth</footer>

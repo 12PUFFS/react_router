@@ -1,0 +1,89 @@
+/* Общий стиль контейнера карточки */
+.product-card {
+  position: relative; /* уже есть */
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Стиль контейнера изображения */
+.product-card-img {
+  position: relative; /* чтобы располагать кнопку относительно изображения */
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Изображение внутри карточки */
+.product-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 1px solid #ddd;
+}
+
+/* Стиль рейтинга (например, число) */
+.rating {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 1em;
+  /* z-index: 2; */
+}
+
+/* Кнопка "Подробнее" — расположена внутри .product-card-img */
+.product-card-img button {
+  position: absolute; /* поверх изображения */
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50%; */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  display: none;
+  transition: background-color 0.3s;
+  z-index: 2;
+  /* убираем display: none, чтобы всегда был видим */
+}
+
+/* Условно, если хотите показывать кнопку только при наведении, используйте */
+.product-card-img:hover button {
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+/* информация о продукте */
+.product-card-info {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-card-price {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.product-card-title {
+  font-size: 1.1em;
+  margin-bottom: 12px;
+  text-align: center;
+}

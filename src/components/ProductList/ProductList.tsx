@@ -96,11 +96,15 @@ export default function ProductList() {
                 новое
               </p>
               <div className="price-filter">
-                <div>фильтры по цене</div>
+                <select name="price" id="price-select">
+                  <option value="">Фильтры по цене</option>
+                  <option value="hight">Сначало дороже</option>
+                  <option value="low">Сначало дешевле</option>
+                </select>
               </div>
             </div>
 
-            <ul className="all-sneakers-grid">
+            <ul className="card-list">
               {filtredItems.map((item, index: number) => {
                 return (
                   <li key={item.id}>
