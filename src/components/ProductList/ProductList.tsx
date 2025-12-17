@@ -53,6 +53,10 @@ export default function ProductList() {
     <>
       <div className="container">
         <div className="banner">
+          <div className="title-desc">
+            <h2>{newProductBanner?.title}</h2>
+            <p>{newProductBanner?.price}</p>
+          </div>
           <div className="banner-title">
             <h3>Легендарные модели</h3>
           </div>
