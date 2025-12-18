@@ -1,24 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from '../ProductCard/ProductCard';
-
 import './ProductList.css';
 import products from '../../data';
 import type { Product } from '../../data';
-
 import Loading from '../Loading/Loading';
 import EmptyProductList from './EmptyProductList';
-import { Link } from 'react-router-dom';
-import { CartContext } from '../../App';
 
 export default function ProductList() {
   const [items, setItems] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState('all');
   const [searchValue, setSearchValue] = useState('');
+  const [bannerIndex, setBannerIndex] = useState(0);
 
-  const { newProductBanner } = useContext(CartContext);
-
+  // Первый useEffect - всегда выполняется
   useEffect(() => {
     setTimeout(() => {
       setItems(products);
@@ -30,48 +26,105 @@ export default function ProductList() {
     setSearchValue(e.target.value);
   };
 
-  const filtredItems = items.filter((item) => {
+  const filteredItems = items.filter((item) => {
     return (
       item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
       item.description.toLowerCase().includes(searchValue.toLowerCase())
     );
   });
 
+  // Баннеры - все товары со статусом 'new'
+  const bannerProducts = products.filter((i) => i.status === 'new');
+
+  // Если нет новых товаров, берем первые 3
+  const displayBanners =
+    bannerProducts.length > 0 ? bannerProducts : products.slice(0, 3);
+
+  // Текущий баннер для показа
+  const currentBanner = displayBanners[bannerIndex];
+
+  // Навигация по баннерам
+  const handlePrevBanner = () => {
+    if (displayBanners.length <= 1) return;
+    setBannerIndex((prev) =>
+      prev === 0 ? displayBanners.length - 1 : prev - 1
+    );
+  };
+
+  const handleNextBanner = () => {
+    if (displayBanners.length <= 1) return;
+    setBannerIndex((prev) =>
+      prev === displayBanners.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  // Второй useEffect - всегда выполняется
+  useEffect(() => {
+    // Если баннеров 1 или меньше, не запускаем интервал
+    if (displayBanners.length <= 1) {
+      return;
+    }
+
+    const interval = setInterval(() => {
+      setBannerIndex((prev) =>
+        prev === displayBanners.length - 1 ? 0 : prev + 1
+      );
+    }, 5000);
+
+    // Функция очистки - всегда выполняется
+    return () => {
+      clearInterval(interval);
+    };
+  }, [displayBanners.length]); // Зависимости
+
   if (loading) {
     return <Loading setActive={setActive} active={active} />;
   }
 
-  if (filtredItems.length === 0) {
+  if (filteredItems.length === 0) {
     return <EmptyProductList setActive={setActive} active={active} />;
   }
-
-  // const newProductBanner = products.find((i) => {
-  //   return i.status === 'new';
-  // });
 
   return (
     <>
       <div className="container">
-        <div className="banner">
-          <div className="title-desc">
-            <h2>{newProductBanner?.title}</h2>
-            <p>{newProductBanner?.price}</p>
-          </div>
-          <div className="banner-title">
-            <h3>Легендарные модели</h3>
-          </div>
-          <div className="options">
-            <div className="div-prev">
-              <button>←</button>
+        {/* Баннер */}
+        {displayBanners.length > 0 && currentBanner && (
+          <div className="banner">
+            <div className="title-desc">
+              <h2>{currentBanner.title}</h2>
+              <p className="banner-price">{currentBanner.price} ₽</p>
+              {displayBanners.length > 1 && (
+                <div className="banner-counter">
+                  {bannerIndex + 1} / {displayBanners.length}
+                </div>
+              )}
             </div>
-            <div className="div-next">
-              <button>→</button>
+            <div className="banner-title">
+              <h3>Легендарные модели</h3>
             </div>
+
+            {/* Кнопки навигации только если баннеров > 1 */}
+            {displayBanners.length > 1 && (
+              <div className="options">
+                <div className="div-prev">
+                  <button onClick={handlePrevBanner}>←</button>
+                </div>
+                <div className="div-next">
+                  <button onClick={handleNextBanner}>→</button>
+                </div>
+              </div>
+            )}
+
+            <Link to={`/item/${currentBanner.id}`}>
+              <img
+                src={currentBanner.image || currentBanner.photos?.[0] || ''}
+                alt={currentBanner.title}
+              />
+            </Link>
           </div>
-          <Link to={`/item/${newProductBanner?.id || '1'}`}>
-            <img src={newProductBanner?.image || ''} alt="" />
-          </Link>
-        </div>
+        )}
+
         <div className="wrapper">
           <div className="filters">тут фильтры</div>
           <div className="list">
@@ -80,6 +133,7 @@ export default function ProductList() {
                 onChange={handleSearch}
                 type="text"
                 placeholder="Что ищем?"
+                value={searchValue}
               />
               <p
                 onClick={() => setActive('all')}
@@ -102,25 +156,23 @@ export default function ProductList() {
               <div className="price-filter">
                 <select name="price" id="price-select">
                   <option value="">Фильтры по цене</option>
-                  <option value="hight">Сначало дороже</option>
-                  <option value="low">Сначало дешевле</option>
+                  <option value="high">Сначала дороже</option>
+                  <option value="low">Сначала дешевле</option>
                 </select>
               </div>
             </div>
 
             <ul className="card-list">
-              {filtredItems.map((item, index: number) => {
-                return (
-                  <li key={item.id}>
-                    <ProductCard product={item} index={index} />
-                  </li>
-                );
-              })}
+              {filteredItems.map((item, index: number) => (
+                <li key={item.id}>
+                  <ProductCard product={item} index={index} />
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
-      <footer className="footer">wwarwetrgth</footer>
+      <footer className="footer">Магазин кроссовок © 2024</footer>
     </>
   );
 }

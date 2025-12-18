@@ -85,6 +85,45 @@ const products: Product[] = [
     ],
     availableSizes: [38, 39, 40, 41],
     models: 'dunk',
+    // status: 'new',
+  },
+
+  {
+    id: 3,
+    title: 'Кроссовки NIKE Air Force 1',
+    price: '14 912',
+    image:
+      'https://avatars.mds.yandex.net/get-mpic/986077/2a00000192ec444afcccb0f62be69d2aa8fa/900x1200',
+    description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
+    category: 'shoes',
+    fulldesc:
+      'Кроссовки NIKE Air Force 1 - это стильная и универсальная модель...',
+    rating: 4.4,
+    photos: [
+      'https://avatars.mds.yandex.net/get-mpic/986077/2a00000192ec444afcccb0f62be69d2aa8fa/900x1200',
+      'https://avatars.mds.yandex.net/get-mpic/5258494/2a00000192ec444afaa701355e71b8433da9/900x1200',
+      'https://avatars.mds.yandex.net/get-mpic/7498982/2a00000192ec444afff52f3268a308a3451b/900x1200',
+      'https://avatars.mds.yandex.net/get-mpic/5287649/2a00000192ec444af665834f9da2c09a506f/900x1200',
+      'https://avatars.mds.yandex.net/get-mpic/5220415/2a00000192ec444aed6abd3be0c1a6228a02/900x1200',
+      'https://avatars.mds.yandex.net/get-mpic/5235334/2a00000192ec444af4d009ee1b28571e9053/900x1200',
+      // 'https://ir.ozone.ru/s3/multimedia-1-l/wc1000/7435891605.jpg',
+    ],
+    desc: [
+      'Цвет товара - белый',
+      'Застежка- шнуровка',
+      'Вид спорта - повседневные',
+      'Материал верха - искусственная кожа, натуральная кожа',
+      'Материал стельки - искусственная замша',
+      'Материал подошвы  - ЭВА, резина',
+      'Сезон - всесезон',
+      'Бренд  - Nike',
+    ],
+    variants: [
+      'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7435891604.jpg',
+      'https://ir.ozone.ru/s3/multimedia-1-4/wc1000/7695221116.jpg',
+    ],
+    availableSizes: [38, 39, 40, 41],
+    models: 'force',
     status: 'new',
   },
 ];

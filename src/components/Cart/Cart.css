@@ -72,7 +72,7 @@ a {
   flex-direction: column;
   /* position: sticky; */
   /* top: -50px; */
-  z-index: 20;
+  z-index: 20000000000000000000000000000000;
 }
 
 .ty.active ul {

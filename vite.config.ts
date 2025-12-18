@@ -12,3 +12,9 @@ export default defineConfig({
     },
   },
 });
+
+// <Link to={`/item/${bannerProducts.id}`}>
+//     {bannerProducts.map((i, index: number) => {
+//       return <img key={index} src={i.image} alt="" />;
+//     })}
+//   </Link>

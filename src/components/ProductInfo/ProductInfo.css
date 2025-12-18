@@ -811,6 +811,8 @@ a {
 @media (max-width: 576px) {
   .all-sneakers-grid {
     grid-template-columns: 1fr;
+    display: flex;
+    overflow: scroll;
   }
 
   .section-title {
@@ -892,6 +894,10 @@ a {
     top: 14%;
   }
 
+  .sneaker-image {
+    height: 170px;
+  }
+
   .full-info {
     padding: 24px;
     /* width: auto;
@@ -902,6 +908,18 @@ a {
   .price button {
     font-size: 28px;
   }
+
+  /* .ty.active {
+    top: -50px;
+    left: 50%;
+    max-width: 400px;
+    transform: translate(-50%, 50%);
+  } */
+
+  /* .ty {
+    height: fit-content;
+    width: max-content;
+  }  */
 
   .prev,
   .next {
@@ -916,6 +934,10 @@ a {
     gap: 30px;
     display: flex;
     flex-direction: column;
+  }
+
+  .sneaker-card {
+    width: 200px;
   }
 
   .main-btn {

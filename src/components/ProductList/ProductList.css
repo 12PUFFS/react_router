@@ -12,7 +12,7 @@
 /* =========== БАННЕР =========== */
 .banner {
   background: #c1c1c126;
-  height: 400px;
+  height: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,14 +30,14 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  top: 160px;
+  top: 230px;
   left: 180px;
-  z-index: 4;
+  z-index: 2;
 }
 
 .banner-title {
   position: absolute;
-  left: -130px;
+  left: 200px;
   top: 30%;
   transform: translate(50%, -200%);
   z-index: 2;
@@ -60,6 +60,7 @@
   position: relative;
   z-index: 1;
   transition: transform 0.5s ease;
+  margin-left: 250px;
 }
 
 .banner:hover img {
@@ -120,6 +121,12 @@
   gap: 40px;
 }
 
+.banner-counter {
+  position: absolute;
+  top: -210px;
+  left: -160px;
+}
+
 /* =========== ФИЛЬТРЫ =========== */
 .filters {
   background: white;
@@ -127,7 +134,8 @@
   padding: 24px;
   position: sticky;
   top: 20px;
-  height: fit-content;
+  /* height: fit-content; */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
   width: 280px;
   border: 1px solid #eee;
@@ -233,7 +241,7 @@
 /* =========== СЕТКА ТОВАРОВ =========== */
 .card-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 24px;
   list-style: none;
   padding: 0;
@@ -330,12 +338,46 @@
     height: 250px;
   }
 
+  .product-card-price {
+    background: black;
+    color: white;
+    width: 136px;
+    /* text-align: center; */
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  .product-card {
+    width: min-content;
+    height: 300px;
+  }
+
+  .product-card-title {
+    margin-top: 12px;
+  }
+
   .banner-title {
     left: 20px;
   }
 
   .banner-title h3 {
     font-size: 20px;
+  }
+
+  .banner img {
+    max-height: 345px;
+    margin-left: 0;
+  }
+
+  .banner {
+    height: 150px;
+  }
+
+  .product-card-info {
+    padding: 0;
   }
 
   .card-list {
@@ -347,9 +389,22 @@
     gap: 10px;
   }
 
+  .filters {
+    display: none;
+  }
+
   .f {
     padding: 8px 16px;
     font-size: 13px;
+  }
+
+  .card-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    display: flex;
+
+    /* overflow: scroll; */
+    flex-wrap: wrap;
   }
 
   .indiv input {
