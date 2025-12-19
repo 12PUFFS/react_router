@@ -85,7 +85,7 @@ const products: Product[] = [
     ],
     availableSizes: [38, 39, 40, 41],
     models: 'dunk',
-    // status: 'new',
+    status: 'new',
   },
 
   {

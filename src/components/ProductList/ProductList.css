@@ -248,6 +248,10 @@
   margin: 0;
 }
 
+.card-list li {
+  margin-right: 0;
+}
+
 /* =========== ФУТЕР =========== */
 .footer {
   background: #000;
@@ -351,7 +355,7 @@
   }
 
   .product-card {
-    width: min-content;
+    width: 163px;
     height: 300px;
   }
 
