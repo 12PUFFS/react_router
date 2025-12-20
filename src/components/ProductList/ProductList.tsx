@@ -92,13 +92,13 @@ export default function ProductList() {
         {displayBanners.length > 0 && currentBanner && (
           <div className="banner">
             <div className="title-desc">
-              <h2>{currentBanner.title}</h2>
-              <p className="banner-price">{currentBanner.price} ₽</p>
               {displayBanners.length > 1 && (
                 <div className="banner-counter">
                   {bannerIndex + 1} / {displayBanners.length}
                 </div>
               )}
+              <h2>{currentBanner.title}</h2>
+              <p className="banner-price">{currentBanner.price} ₽</p>
             </div>
             <div className="banner-title">
               <h3>Легендарные модели</h3>
