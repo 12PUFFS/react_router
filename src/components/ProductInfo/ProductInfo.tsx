@@ -298,7 +298,7 @@ export default function ProductInfo() {
           </div>
         </div>
       </div>
-      <footer className="footer">esfejrhgth</footer>
+      <footer className="footer">Магазин кроссовок © 2025</footer>
     </>
   );
 }

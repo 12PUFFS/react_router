@@ -172,7 +172,7 @@ export default function ProductList() {
           </div>
         </div>
       </div>
-      <footer className="footer">Магазин кроссовок © 2024</footer>
+      <footer className="footer">Магазин кроссовок © 2025</footer>
     </>
   );
 }
