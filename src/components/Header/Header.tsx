@@ -5,7 +5,7 @@ import heartIcon from '../../assets/heart.png';
 export default function Header() {
   return (
     <>
-      <div className="pre-header">я пре-хедер</div>
+      <div className="pre-header">Найди свою идеальную пару</div>
       <header className="header">
         <div className="menu">
           <ul>

@@ -100,12 +100,11 @@ export default function ProductList() {
               <h2>{currentBanner.title}</h2>
               <p className="banner-price">{currentBanner.price} ₽</p>
             </div>
-            <div className="banner-title">
-              <h3>Легендарные модели</h3>
-            </div>
+            {/* <div className="banner-title">
+              <h3>Новинки</h3>
+            </div> */}
 
-            {/* Кнопки навигации только если баннеров > 1 */}
-            {displayBanners.length > 1 && (
+            {/* {displayBanners.length > 1 && (
               <div className="options">
                 <div className="div-prev">
                   <button onClick={handlePrevBanner}>←</button>
@@ -114,7 +113,7 @@ export default function ProductList() {
                   <button onClick={handleNextBanner}>→</button>
                 </div>
               </div>
-            )}
+            )} */}
 
             <Link to={`/item/${currentBanner.id}`}>
               <img
