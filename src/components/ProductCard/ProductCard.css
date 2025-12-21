@@ -101,7 +101,7 @@
 
 /* Контейнер с информацией */
 .product-card-info {
-  padding: 20px;
+  /* padding: 20px; */
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -113,14 +113,20 @@
   color: #2d3436;
   font-size: 24px;
   font-weight: 800;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
   letter-spacing: -0.5px;
+  color: white;
+  background: #000;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 /* Заголовок товара */
 .product-card-title {
   color: #636e72;
-  font-size: 16px;
+  /* font-size: 16px; */
+  text-align: center;
   font-weight: 500;
   line-height: 1.4;
   margin-bottom: 5px;

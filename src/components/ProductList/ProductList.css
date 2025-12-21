@@ -43,7 +43,7 @@
 .banner-price {
   background: black;
   color: white;
-  padding: 5px;
+  padding: 10px;
   display: flex;
   justify-content: center;
 }
@@ -240,6 +240,11 @@
   background-size: 14px;
 }
 
+.product-card-info {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 #price-select:hover {
   border-color: #bbb;
 }
@@ -386,13 +391,13 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 0;
+    /* margin-bottom: 0; */
   }
 
   .banner-price {
     background: black;
     color: white;
-    padding: 5px;
+    padding: 10px;
     display: flex;
     justify-content: center;
   }
