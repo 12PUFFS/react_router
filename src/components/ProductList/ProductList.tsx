@@ -13,6 +13,7 @@ export default function ProductList() {
   const [active, setActive] = useState('all');
   const [searchValue, setSearchValue] = useState('');
   const [bannerIndex, setBannerIndex] = useState(0);
+  // const [status, setStatus] = useState('all');
 
   // Первый useEffect - всегда выполняется
   useEffect(() => {
@@ -22,16 +23,21 @@ export default function ProductList() {
     }, 500);
   }, []);
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(e.target.value);
-  };
+  // const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchValue(e.target.value);
+  // };
 
-  const filteredItems = items.filter((item) => {
-    return (
-      item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  });
+  // const filteredItems = items.filter((item) => {
+  //   return (
+  //     item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
+  //     item.description.toLowerCase().includes(searchValue.toLowerCase())
+  //   );
+  // });
+
+  // const changeStatus = (newStatus) => {
+  //   setActive(newStatus); // передаем значение
+  //   setStatus(newStatus); // передаем значение
+  // };
 
   // Баннеры - все товары со статусом 'new'
   const bannerProducts = products.filter((i) => i.status === 'new');
@@ -44,19 +50,19 @@ export default function ProductList() {
   const currentBanner = displayBanners[bannerIndex];
 
   // Навигация по баннерам
-  // const handlePrevBanner = () => {
-  //   if (displayBanners.length <= 1) return;
-  //   setBannerIndex((prev) =>
-  //     prev === 0 ? displayBanners.length - 1 : prev - 1
-  //   );
-  // };
+  const handlePrevBanner = () => {
+    if (displayBanners.length <= 1) return;
+    setBannerIndex((prev) =>
+      prev === 0 ? displayBanners.length - 1 : prev - 1
+    );
+  };
 
-  // const handleNextBanner = () => {
-  //   if (displayBanners.length <= 1) return;
-  //   setBannerIndex((prev) =>
-  //     prev === displayBanners.length - 1 ? 0 : prev + 1
-  //   );
-  // };
+  const handleNextBanner = () => {
+    if (displayBanners.length <= 1) return;
+    setBannerIndex((prev) =>
+      prev === displayBanners.length - 1 ? 0 : prev + 1
+    );
+  };
 
   // Второй useEffect - всегда выполняется
   useEffect(() => {
@@ -81,7 +87,7 @@ export default function ProductList() {
     return <Loading setActive={setActive} active={active} />;
   }
 
-  if (filteredItems.length === 0) {
+  if (items.length === 0) {
     return <EmptyProductList setActive={setActive} active={active} />;
   }
 
@@ -91,36 +97,40 @@ export default function ProductList() {
         {/* Баннер */}
         {displayBanners.length > 0 && currentBanner && (
           <div className="banner">
-            <div className="title-desc">
-              {displayBanners.length > 1 && (
-                <div className="banner-counter">
-                  {bannerIndex + 1} / {displayBanners.length}
-                </div>
-              )}
-              <h2>{currentBanner.title}</h2>
-              <p className="banner-price">{currentBanner.price} ₽</p>
-            </div>
-            {/* <div className="banner-title">
+            <div className="banner-content">
+              <div className="title-desc">
+                {displayBanners.length > 1 && (
+                  <div className="banner-counter">
+                    {bannerIndex + 1} / {displayBanners.length}
+                  </div>
+                )}
+                <h2>{currentBanner.title}</h2>
+                <p className="banner-price">{currentBanner.price} ₽</p>
+              </div>
+              {/* <div className="banner-title">
               <h3>Новинки</h3>
             </div> */}
 
-            {/* {displayBanners.length > 1 && (
-              <div className="options">
-                <div className="div-prev">
-                  <button onClick={handlePrevBanner}>←</button>
+              {displayBanners.length > 1 && (
+                <div className="options">
+                  <div className="div-prev">
+                    <button onClick={handlePrevBanner}>←</button>
+                  </div>
+                  <div className="div-next">
+                    <button onClick={handleNextBanner}>→</button>
+                  </div>
                 </div>
-                <div className="div-next">
-                  <button onClick={handleNextBanner}>→</button>
-                </div>
-              </div>
-            )} */}
+              )}
 
-            <Link to={`/item/${currentBanner.id}`}>
-              <img
-                src={currentBanner.image || currentBanner.photos?.[0] || ''}
-                alt={currentBanner.title}
-              />
-            </Link>
+              <div className="content-images">
+                <Link to={`/item/${currentBanner.id}`}>
+                  <img
+                    src={currentBanner.image || currentBanner.photos?.[0] || ''}
+                    alt={currentBanner.title}
+                  />
+                </Link>
+              </div>
+            </div>
           </div>
         )}
 
@@ -129,7 +139,7 @@ export default function ProductList() {
           <div className="list">
             <div className="indiv">
               <input
-                onChange={handleSearch}
+                // onChange={handleSearch}
                 type="text"
                 placeholder="Что ищем?"
                 value={searchValue}
@@ -162,7 +172,7 @@ export default function ProductList() {
             </div>
 
             <ul className="card-list">
-              {filteredItems.map((item, index: number) => (
+              {items.map((item, index: number) => (
                 <li key={item.id}>
                   <ProductCard product={item} index={index} />
                 </li>

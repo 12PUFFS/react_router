@@ -317,7 +317,7 @@ a {
   width: 100%;
   height: auto;
   max-height: 600px;
-  object-fit: contain;
+  object-fit: cover;
   display: block;
   border-radius: 20px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);

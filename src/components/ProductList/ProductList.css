@@ -12,7 +12,7 @@
 /* =========== БАННЕР =========== */
 .banner {
   background: #c1c1c126;
-  height: 500px;
+  height: 400px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,8 +20,24 @@
   margin-bottom: 40px;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #eee;
+  /* border: 1px solid #eee; */
   padding: 20px;
+  padding-right: 0;
+}
+
+.banner-counter {
+  right: 20px;
+  position: absolute;
+  top: 20px;
+}
+
+.banner-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* border: 1px solid; */
+  align-items: center;
+  gap: 30px;
 }
 
 .banner-price {
@@ -34,7 +50,7 @@
 
 .title-desc {
   width: 300px;
-  height: 50%;
+  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,8 +74,8 @@
 }
 
 .banner img {
-  max-height: 800px;
-  width: auto;
+  /* height: 591px; */
+  width: 600px;
   object-fit: contain;
   position: relative;
   z-index: 1;
@@ -67,7 +83,7 @@
 }
 
 .banner:hover img {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }
 
 .options {
@@ -359,6 +375,7 @@
   .banner {
     height: 250px;
     padding: 5px;
+    padding-right: 0;
   }
 
   .product-card-price {
@@ -380,8 +397,14 @@
     justify-content: center;
   }
 
+  .content-images img {
+    width: 200px;
+  }
+
   .title-desc {
     font-size: 9px;
+    /* border: 1px solid; */
+    height: 120px;
   }
 
   .product-card {
