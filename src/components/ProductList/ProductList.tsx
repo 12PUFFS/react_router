@@ -11,7 +11,7 @@ export default function ProductList() {
   const [items, setItems] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState('all');
-  const [searchValue, setSearchValue] = useState('');
+  // const [searchValue, setSearchValue] = useState('');
   const [bannerIndex, setBannerIndex] = useState(0);
   // const [status, setStatus] = useState('all');
 
