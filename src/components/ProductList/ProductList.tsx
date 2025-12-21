@@ -142,7 +142,7 @@ export default function ProductList() {
                 // onChange={handleSearch}
                 type="text"
                 placeholder="Что ищем?"
-                value={searchValue}
+                // value={searchValue}
               />
               <p
                 onClick={() => setActive('all')}
