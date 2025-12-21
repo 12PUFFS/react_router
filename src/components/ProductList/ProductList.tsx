@@ -44,19 +44,19 @@ export default function ProductList() {
   const currentBanner = displayBanners[bannerIndex];
 
   // Навигация по баннерам
-  const handlePrevBanner = () => {
-    if (displayBanners.length <= 1) return;
-    setBannerIndex((prev) =>
-      prev === 0 ? displayBanners.length - 1 : prev - 1
-    );
-  };
+  // const handlePrevBanner = () => {
+  //   if (displayBanners.length <= 1) return;
+  //   setBannerIndex((prev) =>
+  //     prev === 0 ? displayBanners.length - 1 : prev - 1
+  //   );
+  // };
 
-  const handleNextBanner = () => {
-    if (displayBanners.length <= 1) return;
-    setBannerIndex((prev) =>
-      prev === displayBanners.length - 1 ? 0 : prev + 1
-    );
-  };
+  // const handleNextBanner = () => {
+  //   if (displayBanners.length <= 1) return;
+  //   setBannerIndex((prev) =>
+  //     prev === displayBanners.length - 1 ? 0 : prev + 1
+  //   );
+  // };
 
   // Второй useEffect - всегда выполняется
   useEffect(() => {
