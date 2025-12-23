@@ -93,10 +93,9 @@ export default function ProductList() {
 
   return (
     <>
-      <div className="container">
-        {/* Баннер */}
-        {displayBanners.length > 0 && currentBanner && (
-          <div className="banner">
+      {displayBanners.length > 0 && currentBanner && (
+        <div className="banner">
+          <div className="wontainer">
             <div className="banner-content">
               <div className="title-desc">
                 {displayBanners.length > 1 && (
@@ -108,8 +107,8 @@ export default function ProductList() {
                 <p className="banner-price">{currentBanner.price} ₽</p>
               </div>
               {/* <div className="banner-title">
-              <h3>Новинки</h3>
-            </div> */}
+          <h3>Новинки</h3>
+        </div> */}
 
               {displayBanners.length > 1 && (
                 <div className="options">
@@ -132,8 +131,9 @@ export default function ProductList() {
               </div>
             </div>
           </div>
-        )}
-
+        </div>
+      )}
+      <div className="container">
         <div className="wrapper">
           <div className="filters">тут фильтры</div>
           <div className="list">
