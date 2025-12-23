@@ -318,7 +318,7 @@ a {
   width: 100%;
   /* height: 100%; */
   height: 600px;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   border-radius: 20px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
@@ -748,9 +748,13 @@ a {
 }
 
 .footer {
-  background: #000;
+  background: linear-gradient(
+    360deg,
+    rgb(0 107 255 / 38%),
+    rgb(255 255 255 / 50%)
+  );
   height: 300px;
-  color: white;
+  color: rgb(0, 0, 0);
   margin-top: auto; /* Это прижмет футер к низу */
   padding: 50px;
 }
