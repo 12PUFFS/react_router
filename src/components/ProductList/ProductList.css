@@ -39,7 +39,7 @@
 
 .banner-content {
   display: flex;
-  max-width: 1400px;
+  width: 1400px;
   justify-content: space-between;
   /* border: 1px solid; */
   align-items: center;
@@ -331,6 +331,7 @@
 
   .banner img {
     max-height: 700px;
+    padding: 0;
   }
 
   .card-list {
