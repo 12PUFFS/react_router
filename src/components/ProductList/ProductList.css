@@ -46,6 +46,7 @@
   gap: 30px;
   height: 600px;
   overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   /* padding-right: 20px; */
 }
 
@@ -326,12 +327,13 @@
   }
 
   .banner-content {
-    width: 730px;
+    max-width: 980px;
   }
 
   .banner img {
     max-height: 700px;
     padding: 0;
+    margin: 0;
   }
 
   .card-list {
@@ -341,7 +343,7 @@
 
   .banner-content {
     display: flex;
-    max-width: 1060px;
+    /* max-width: 1060px; */
     /* padding-right: 20px; */
   }
 }
@@ -437,11 +439,12 @@
 
   .banner {
     width: auto;
-    border: 1px solid;
+    /* border: 1px solid; */
   }
 
   .banner-content {
     width: 340px;
+    padding: 10px;
   }
 
   .content-images img {
@@ -452,6 +455,10 @@
     font-size: 9px;
     /* border: 1px solid; */
     height: 120px;
+  }
+
+  .title-desc h2 {
+    font-size: 30px;
   }
 
   .product-card {
@@ -476,7 +483,7 @@
   }
 
   .banner {
-    height: 150px;
+    /* height: 150px; */
   }
 
   .product-card-info {
