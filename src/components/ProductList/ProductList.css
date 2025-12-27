@@ -18,7 +18,7 @@
     rgb(0 107 255 / 38%),
     rgb(255 255 255 / 50%)
   );
-  height: 700px;
+  /* height: 700px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,15 +39,17 @@
 
 .banner-content {
   display: flex;
-  width: 1400px;
+  width: 1440px;
   justify-content: space-between;
   /* border: 1px solid; */
   align-items: center;
   gap: 30px;
-  height: 600px;
+  height: 500px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 30px 900px rgba(0, 0, 0, 0.255);
+  position: relative;
   /* padding-right: 20px; */
+  border-radius: 35px;
 }
 
 .banner-price {
@@ -132,6 +134,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .banner:hover .options button {
@@ -175,7 +178,7 @@
   /* border: 1px solid; */
   max-width: 1450px;
   margin: 0 auto;
-  height: 600px;
+  /* height: 600px; */
 }
 
 /* =========== ПАНЕЛЬ ФИЛЬТРОВ =========== */
@@ -305,6 +308,12 @@
   }
 }
 
+@media (max-width: 1440px) {
+  .banner-content {
+    width: 1400px;
+  }
+}
+
 @media (max-width: 1024px) {
   .wrapper {
     gap: 30px;
@@ -328,6 +337,7 @@
 
   .banner-content {
     max-width: 980px;
+    height: 300px;
   }
 
   .banner img {
@@ -402,6 +412,13 @@
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 16px;
   }
+
+  .banner-content {
+    /* display: flex; */
+    max-width: 730px;
+    /* padding-right: 20px; */
+    padding: 10px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -443,12 +460,14 @@
   }
 
   .banner-content {
-    width: 340px;
+    width: 345px;
     padding: 10px;
+    /* height: 160px; */
+    gap: 10px;
   }
 
   .content-images img {
-    width: 130px;
+    width: 250px;
   }
 
   .title-desc {
@@ -458,7 +477,7 @@
   }
 
   .title-desc h2 {
-    font-size: 30px;
+    font-size: 15px;
   }
 
   .product-card {
@@ -545,11 +564,23 @@
   .product-card-price {
     font-size: 15px;
   }
+
+  .banner {
+    height: 200px;
+  }
+
+  .banner-counter {
+    top: 60px;
+  }
 }
 
 @media (max-width: 360px) {
   .card-list {
     gap: 8px;
+  }
+
+  .banner-content {
+    height: 160px;
   }
 }
 
@@ -557,6 +588,19 @@
   .card-list {
     grid-template-columns: repeat(2, 1fr);
     gap: 8px;
+  }
+
+  .banner-content {
+    width: 280px;
+  }
+
+  .banner {
+    height: 200px;
+  }
+
+  .title-desc h2 {
+    height: 160px;
+    font-size: 15px;
   }
 }
 

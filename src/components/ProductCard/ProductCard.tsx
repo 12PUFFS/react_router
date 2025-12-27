@@ -13,20 +13,21 @@ export default function ProductCard({ product }: TypeOfProduct) {
   // const { addCart } = useContext(CartContext);
 
   return (
-    <div className="product-card">
-      <div className="product-card-img">
-        <img src={product.image} alt="" />
-        <Link to={`/item/${product.id} `}>
-          <button>Подробнее</button>
-        </Link>
-      </div>
+    <Link to={`/item/${product.id} `}>
+      <div className="product-card">
+        <div className="product-card-img">
+          <img src={product.image} alt="" />
 
-      <h4 className="rating">{product.rating}</h4>
+          {/* <button>Подробнее</button> */}
+        </div>
 
-      <div className="product-card-info">
-        <h2 className="product-card-price">{product.price} ₽</h2>
-        <h3 className="product-card-title">{product.title}</h3>
+        <h4 className="rating">{product.rating}</h4>
+
+        <div className="product-card-info">
+          <h2 className="product-card-price">{product.price} ₽</h2>
+          <h3 className="product-card-title">{product.title}</h3>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }

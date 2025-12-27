@@ -246,6 +246,13 @@ a {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
+.photo li:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  /* border: 1px solid rgb(0, 0, 0); */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
 .photo li:has(img[src*='']) {
   opacity: 1;
   border-color: #000;
