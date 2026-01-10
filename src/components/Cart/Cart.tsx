@@ -1,67 +1,28 @@
-import { useState, useContext } from 'react';
-import './Cart.css';
-import { CartContext } from '../../App';
-import Modal from '../Modal/Modal';
 import { Link } from 'react-router-dom';
-import cartIcon from '../../assets/Bag (1).svg';
-
+import './Cart.css';
+import { useContext } from 'react';
+import { CartContext } from '../../App'; // импортируйте ваш контекст
 export default function Cart() {
-  const [activeCart, setActiveCart] = useState(false);
-
-  const { cart, setModal, modal } = useContext(CartContext);
-
-  const openModal = () => {
-    setModal(true);
-  };
+  const { cart } = useContext(CartContext);
 
   return (
-    <div>
-      {modal && <Modal />}
-
-      <div className="cartinochka">
-        <p onClick={() => setActiveCart(!activeCart)} className="cart">
-          <img className="heart" src={cartIcon} alt="" />
-        </p>
-      </div>
-      <span className="cart-count">{cart.length}</span>
-      <div className={`ty ${activeCart ? 'active' : ''}`}>
-        <div className="ol">
-          <h2>Перейти в корзину</h2>
-          <div className="cart-btns">
-            {cart.length != 0 && cart.length > 1 && (
-              <button onClick={openModal}>удалить все</button>
-            )}
-
-            <button
-              onClick={() => setActiveCart(!activeCart)}
-              className="close-btn"
-            >
-              X
-            </button>
-          </div>
-        </div>
+    <>
+      <div className="container">
+        <Link to={'/'}>
+          <button className="back-btn">назад</button>
+        </Link>
+        <h1>Корзина</h1>
         <ul>
-          {cart.length === 0 && <p className="empty-cart">корзина пуста</p>}
-          {cart.map((item) => (
-            <li key={item.id}>
-              <Link to={`/item/${item.id}`}>
-                <img className="pii" src={item.image} alt={item.title} />
-                <div className="ll">
-                  <h3>{item.title}</h3>
-                  <p>{item.price} ₽</p>
-                  {item.selectedSize && (
-                    <p>
-                      <strong>Размер: {item.selectedSize}</strong>
-                    </p>
-                  )}
-                  <p>{item.rating}</p>
-                </div>
-              </Link>
-              <button onClick={openModal}>удалить</button>
-            </li>
-          ))}
+          {cart.map((i) => {
+            return (
+              <li className="rtrtyr">
+                {i.title}
+                <img src={i.image} alt="" />
+              </li>
+            );
+          })}
         </ul>
       </div>
-    </div>
+    </>
   );
 }

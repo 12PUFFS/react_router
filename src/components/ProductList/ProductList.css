@@ -15,7 +15,7 @@
 .banner {
   background: linear-gradient(
     180deg,
-    rgb(0 107 255 / 38%),
+    rgb(103 109 118 / 83%),
     rgb(255 255 255 / 50%)
   );
   /* height: 700px; */
@@ -44,9 +44,9 @@
   /* border: 1px solid; */
   align-items: center;
   gap: 30px;
-  height: 500px;
+  height: 350px;
   overflow: hidden;
-  box-shadow: 0 30px 900px rgba(0, 0, 0, 0.255);
+  /* box-shadow: 0 30px 900px rgba(0, 0, 0, 0.255); */
   position: relative;
   /* padding-right: 20px; */
   border-radius: 35px;
@@ -166,6 +166,7 @@
   flex-shrink: 0;
   width: 280px;
   border: 1px solid #eee;
+  height: fit-content;
 }
 
 /* =========== ПРАВАЯ КОЛОНКА =========== */
@@ -278,8 +279,7 @@
 
 /* =========== СЕТКА ТОВАРОВ =========== */
 .card-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  display: flex;
   gap: 24px;
   list-style: none;
   padding: 0;

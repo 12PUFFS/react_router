@@ -15,6 +15,10 @@ a {
   position: relative;
 }
 
+.rtrtyr {
+  border: 1px solid red;
+}
+
 .cart-count {
   position: absolute;
   top: 20px;
