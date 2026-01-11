@@ -1,4 +1,4 @@
-import Cart from '../Cart/Cart';
+// import Cart from '../Cart/Cart';
 import './Header.css';
 import heartIcon from '../../assets/heart.png';
 import { useContext } from 'react';

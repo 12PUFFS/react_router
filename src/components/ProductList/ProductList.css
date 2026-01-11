@@ -13,11 +13,6 @@
 
 /* =========== БАННЕР =========== */
 .banner {
-  background: linear-gradient(
-    180deg,
-    rgb(103 109 118 / 83%),
-    rgb(255 255 255 / 50%)
-  );
   /* height: 700px; */
   display: flex;
   align-items: center;
@@ -39,22 +34,24 @@
 
 .banner-content {
   display: flex;
-  width: 1440px;
+  width: 1450px;
   justify-content: space-between;
   /* border: 1px solid; */
   align-items: center;
   gap: 30px;
   height: 350px;
+  background: black;
+  color: white;
   overflow: hidden;
-  /* box-shadow: 0 30px 900px rgba(0, 0, 0, 0.255); */
+  box-shadow: 0 30px 900px rgba(0, 0, 0, 0.3);
   position: relative;
   /* padding-right: 20px; */
   border-radius: 35px;
 }
 
 .banner-price {
-  background: black;
-  color: white;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -89,7 +86,7 @@
 
 .banner img {
   /* height: 591px; */
-  width: 600px;
+  width: 500px;
   object-fit: contain;
   position: relative;
   z-index: 1;

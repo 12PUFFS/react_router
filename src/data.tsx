@@ -26,7 +26,7 @@ const products: Product[] = [
     id: 1,
     title: 'Кроссовки Nike Dunk Low Retro',
     price: '13 490',
-    image: dunkBlue,
+    image: 'https://ir.ozone.ru/s3/multimedia-1-t/wc1000/7695221033.jpg',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
     category: 'shoes',
     fulldesc:
@@ -62,7 +62,7 @@ const products: Product[] = [
     id: 2,
     title: 'Кроссовки Nike Dunk Low Retro',
     price: '13 490',
-    image: dunkGreen,
+    image: 'https://ir.ozone.ru/s3/multimedia-1-k/wc1000/7435891604.jpg',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
     category: 'shoes',
     fulldesc:
@@ -135,7 +135,8 @@ const products: Product[] = [
     id: 4,
     title: 'Кроссовки NIKE Air Force 1',
     price: '14 912',
-    image: airForce,
+    image:
+      'https://avatars.mds.yandex.net/get-mpic/986077/2a00000192ec444afcccb0f62be69d2aa8fa/900x1200',
     description: 'Классические кроссовки в ретро-стиле с удобной амортизацией',
     category: 'shoes',
     fulldesc:
